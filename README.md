@@ -18,9 +18,12 @@ The height of any node is measured through the deepest ```child``` node it has. 
 
 ## Designing the Data Structure
 <p align="center">
-    <img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg">
+    <img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg"></img>
 </p>
+
+
 In order to store this data structure in memory, we have to come up with an efficient design to do so. Lets first try represent each node in a Java class called ```TreeNode```. To be able to sew together a tree, we'll have each node host 3 sets of data:
+
 1. ```name``` - The family member's name
 2. ```firstChild``` - A pointer to the first child's TreeNode Object, if any
 3. ```nextSibling``` - A pointer to a sibling's TreeNode Object, if any
@@ -34,7 +37,9 @@ class TreeNode {
     public TreeNode() { // some constructor Logic }
 }
 ```
+
 If we thinking about it logically, we have actually implemented the tree like this:
+
 | ```<TreeNode> this``` | ```this.firstChild``` | ```this.nextSibling``` |
 | :--: | :--: | :--: |
 | ```rickardStark``` | ```nedStark``` | ```null``` |
