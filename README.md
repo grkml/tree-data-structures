@@ -3,9 +3,8 @@ This repository implements the binary search tree data structure in Java. It als
 ## Tree Data Structure Terminology
 
 Lets take a look at one of my favorite implementations of the tree data structure and identify some terminology along the way:
-<p align="center">
+
 <img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTree.jpg">
-</p>
 
 ### Nodes
 Trees are organized into nodes that hold data along various branches. Nodes are related through ```parent```, ```child```, and ```sibling``` relationships.
@@ -17,17 +16,13 @@ Depth refers to the level at which a node sits relative to the ```root```.  When
 The height of any node is measured through the deepest ```child``` node it has. So the height of Benjen Stark is 0, while the height of Rickard Stark is 2.
 
 ## Designing the Data Structure
-<p align="center">
-    <img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg"></img>
-</p>
-
-
+### Strategy
 In order to store this data structure in memory, we have to come up with an efficient design to do so. Lets first try represent each node in a Java class called ```TreeNode```. To be able to sew together a tree, we'll have each node host 3 sets of data:
 
 1. ```name``` - The family member's name
 2. ```firstChild``` - A pointer to the first child's TreeNode Object, if any
 3. ```nextSibling``` - A pointer to a sibling's TreeNode Object, if any
-
+ ### Implementation
 ```java
 class TreeNode {
     String name; // ie "Ned Stark"
@@ -37,9 +32,7 @@ class TreeNode {
     public TreeNode() { // some constructor Logic }
 }
 ```
-
-If we thinking about it logically, we have actually implemented the tree like this:
-
+### Data Stored
 | ```<TreeNode> this``` | ```this.firstChild``` | ```this.nextSibling``` |
 | :--: | :--: | :--: |
 | ```rickardStark``` | ```nedStark``` | ```null``` |
@@ -52,3 +45,5 @@ If we thinking about it logically, we have actually implemented the tree like th
 | ```aryaStark``` | ```null``` | ```branStark``` |
 | ```branStark``` | ```null``` | ```rickonStark``` |
 | ```rickonStark``` | ```null``` | ```null``` |
+### Logical Representation
+<img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg">
