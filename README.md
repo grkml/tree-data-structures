@@ -4,9 +4,7 @@ This repository implements the binary search tree data structure in Java. It als
 
 Lets take a look at one of my favorite implementations of the tree data structure and identify some terminology along the way:
 
-<p align="center">
-  <img width="60%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTree.jpg">
-</p>
+<img width="50%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTree.jpg">
 
 ### Nodes
 Trees are organized into nodes that hold data along various branches. Nodes are related through ```parent```, ```child```, and ```sibling``` relationships.
@@ -34,6 +32,22 @@ class TreeNode {
 ```
 If we thinking about it logically, we have actually implemented the tree like this:
 
-<p align="center">
-  <img width="60%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg">
-</p>
+<img width="50%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg"></img> 
+
+| ```<TreeNode> this``` | ```this.firstChild``` | ```this.nextSibling``` |
+| :--: | :--: | :--: |
+| ```rickardStark``` | ```nedStark``` | ```null``` |
+| ```nedStark``` | ```robbStark``` | ```brandonStark``` |
+| ```brandonStark``` | ```null``` | ```benjenStark``` |
+| ```benjenStark``` | ```null``` | ```lyannaStark``` |
+| ```lyannaStark``` | ```jonSnow``` | ```null``` |
+| ```robbStark``` | ```null``` | ```sansaStark``` |
+| ```sansaStark``` | ```null``` | ```aryaStark``` |
+| ```aryaStark``` | ```null``` | ```branStark``` |
+| ```branStark``` | ```null``` | ```rickonStark``` |
+| ```rickonStark``` | ```null``` | ```null``` |
+
+
+
+
+If we instantiated a ```TreeNode``` for everyone, the data structure would sit like this:
