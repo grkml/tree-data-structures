@@ -18,27 +18,40 @@ The height of any node is measured through the deepest ```child``` node it has. 
 
 ## Designing a General Tree Data Structure
 ### Strategy
-Let's first try represent each node in a Java class called ```TreeNode```. To be able to sew together a ```Tree``` from ```TreeNodes```, lets focus on each node having the correct instance variables. Each ```TreeNode``` instance should have the following in it:
+Let's try represent each node as a Java class. A ```TreeNode``` instance should have the following in it:
 
 1. ```data <String>``` - Stark family member's name (ie "Ned Stark")
 2. ```firstChild <TreeNode>``` - A pointer to a child of ```this```, if any
 3. ```nextSibling <TreeNode>``` - A pointer to a sibling of ```this```, if any
 4. ```previousNode <TreeNode> ``` - A pointer to previous Node along the chain (see Figure 2)
+5. ```myRoot <TreeNode>``` - A pointer to the root node associated with ```this```
  
  ### Implementation
 ```java
 public class TreeNode {
-   protected TreeNode firstChild, nextSibling, previousNode;
-   protected String Name;
-
-   public TreeNode( String data, TreeNode nextSibling, TreeNode firstChild, TreeNode previousNode ) {
-      this.firstChild = firstChild; 
-      this.nextSibling = nextSibling;
-      this.previousNode = previousNode;
-      this.name = name;
-   }
+    protected TreeNode firstChild, nextSibling, previousNode;
+    protected String data;
+    protected TreeNode myRoot;
+    
+    public TreeNode(String data, TreeNode nextSibling, TreeNode firstChild, TreeNode previousNode) {
+        this.firstChild = firstChild;
+        this.nextSibling = nextSibling;
+        this.previousNode = previousNode;
+        this.data = data;
+        myRoot = null;
+    }
    
-   public TreeNode() { this(null, null, null, null); }
+    public TreeNode() {
+        this(null, null, null, null);
+    }
+   
+    public E getData() { return data; }
+
+    // Used by ```Tree``` later on to add create linked Nodes
+    protected TreeNode( E data, TreeNode<E> nextSibling, TreeNode<E> firstChild, TreeNode<E> previousNode, TreeNode<E> root ) {
+        this(data, nextSibling, firstChild, previousNode);
+        myRoot = root;
+    }
 }
 ```
 ### Data Stored
@@ -58,4 +71,4 @@ public class TreeNode {
 ### Logical Representation
 <img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg">
 
-**Figure 1:** Efficiently representing House Stark with our ```TreeNode``` class
+**Figure 2:** Efficiently representing House Stark with our ```TreeNode``` class
