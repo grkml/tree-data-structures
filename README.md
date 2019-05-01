@@ -16,12 +16,12 @@ The height of any node is measured through the deepest ```child``` node it has. 
 
 ## Designing a General Tree Data Structure
 ### Strategy
-Lets first try represent each node in a Java class called ```TreeNode```. To be able to sew together a ```Tree``` from ```TreeNodes```, we'll have each node host 5 instance variables:
+Let's first try represent each node in a Java class called ```TreeNode```. To be able to sew together a ```Tree``` from ```TreeNodes```, lets focus on each node having the correct instance variables. Each ```TreeNode``` instance should have the following in it:
 
-1. <String>```data``` - A String containing the Stark family member's name
-2. <TreeNode>```firstChild``` - A pointer to a child of this ```TreeNode```, if any
-3. <TreeNode>```nextSibling``` - A pointer to a sibling of this ```TreeNode```, if any
-4. <TreeNode>```previousNode``` - A pointer to the ```TreeNode``` that pointed to this one (see diagram below)
+1. ```<String> data``` - Stark family member's name (ie "Ned Stark")
+2. ```<TreeNode> firstChild``` - A pointer to a child of ```this```, if any
+3. ```<TreeNode> nextSibling``` - A pointer to a sibling of ```this```, if any
+4. ```<TreeNode> previousNode``` - A 
  
  ### Implementation
 ```java
