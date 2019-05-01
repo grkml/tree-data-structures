@@ -16,3 +16,19 @@ Every tree has a ```root``` node at the highest level (ie: Rickard Stark). Every
 Depth refers to the level at which a node sits relative to the ```root```.  When referring to the entire tree, a ```root``` node, like Rickard Stark has a depth of 0, while Jon Snow and Arya Stark have a depth of 2. However, depth is also relative to a ```subtree```. If we were only considering Ned Stark's subtree, Arya would have a depth of 1.
 ### Height
 The height of any node is measured through the deepest ```child``` node it has. So the height of Benjen Stark is 0, while the height of Rickard Stark is 2.
+
+## Designing the Data Structure
+In order to store this data structure in memory, we have to come up with an efficient design to do so. Lets first try represent each node in a Java class called ```TreeNode```:
+
+```java
+class TreeNode {
+    String name; // ie "Ned Stark"
+    TreeNode firstChild // pointer to a child
+    TreeNode nextSibling; // pointer to a sibling
+    
+    public TreeNode() { // some constructor Logic }
+}
+```
+Here, we created two instance variables that refer to other ```TreeNode```s: 
+1. ```firstChild```
+2. ```nextSibling```
