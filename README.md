@@ -5,6 +5,8 @@ Lets take a look at one of my favorite implementations of the tree data structur
 
 <img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTree.jpg">
 
+**Figure 1:** A tree data structure modeling one of Great Houses of Westeros
+
 ### Nodes
 Trees are organized into nodes that hold data along various branches. Nodes are related through ```parent```, ```child```, and ```sibling``` relationships.
 ### Roots
@@ -18,10 +20,10 @@ The height of any node is measured through the deepest ```child``` node it has. 
 ### Strategy
 Let's first try represent each node in a Java class called ```TreeNode```. To be able to sew together a ```Tree``` from ```TreeNodes```, lets focus on each node having the correct instance variables. Each ```TreeNode``` instance should have the following in it:
 
-1. ```<String> data``` - Stark family member's name (ie "Ned Stark")
-2. ```<TreeNode> firstChild``` - A pointer to a child of ```this```, if any
-3. ```<TreeNode> nextSibling``` - A pointer to a sibling of ```this```, if any
-4. ```<TreeNode> previousNode``` - A 
+1. ```data <String>``` - Stark family member's name (ie "Ned Stark")
+2. ```firstChild <TreeNode>``` - A pointer to a child of ```this```, if any
+3. ```nextSibling <TreeNode>``` - A pointer to a sibling of ```this```, if any
+4. ```previousNode <TreeNode> ``` - A pointer to previous Node along the chain (see Figure 2)
  
  ### Implementation
 ```java
@@ -55,3 +57,5 @@ public class TreeNode {
 | ```jonSnow``` | ```null``` | ```null``` | ```lyannaStark``` |
 ### Logical Representation
 <img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg">
+
+**Figure 1:** Efficiently representing House Stark with our ```TreeNode``` class
