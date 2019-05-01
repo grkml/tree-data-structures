@@ -18,15 +18,21 @@ The height of any node is measured through the deepest ```child``` node it has. 
 
 ## Designing a General Tree Data Structure
 ### Strategy
-Let's try represent each node as a Java class. A ```TreeNode``` instance should have the following in it:
+To represent a tree, it would be useful to abstract away the "spider web" feel of the actual tree into something more manageable. Imagine that each node has 2 reference pointers ```firstChild``` and ```nextSibling```. Then, we can represent the tree in a chained hierarchy structure focussed on node depth. It would look something like this:
 
+<img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg">
+
+**Figure 2:** Efficiently representing House Stark with our ```TreeNode``` class
+ 
+### Implementation
+In practice, we would actually need more than just those 2 pointers to work with the tree efficiently. Here is a sample ```TreeNode``` class that get the job done:
+#### Instance Variables
 1. ```data <String>``` - Stark family member's name (ie "Ned Stark")
 2. ```firstChild <TreeNode>``` - A pointer to a child of ```this```, if any
 3. ```nextSibling <TreeNode>``` - A pointer to a sibling of ```this```, if any
 4. ```previousNode <TreeNode> ``` - A pointer to previous Node along the chain (see Figure 2)
 5. ```myRoot <TreeNode>``` - A pointer to the root node associated with ```this```
- 
- ### Implementation
+#### Code
 ```java
 public class TreeNode {
     protected TreeNode firstChild, nextSibling, previousNode;
@@ -54,7 +60,7 @@ public class TreeNode {
     }
 }
 ```
-### Data Stored
+#### Data Stored
 | ```<TreeNode> this``` | ```this.firstChild``` | ```this.nextSibling``` | ```this.previousNode``` |
 | :--: | :--: | :--: | :--: |
 | ```rickardStark``` | ```nedStark``` | ```null``` | ```null``` |
@@ -68,7 +74,3 @@ public class TreeNode {
 | ```branStark``` | ```null``` | ```rickonStark``` | ```aryaStark``` |
 | ```rickonStark``` | ```null``` | ```null``` | ```branStark``` |
 | ```jonSnow``` | ```null``` | ```null``` | ```lyannaStark``` |
-### Logical Representation
-<img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg">
-
-**Figure 2:** Efficiently representing House Stark with our ```TreeNode``` class
