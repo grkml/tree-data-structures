@@ -14,14 +14,14 @@ Depth refers to the level at which a node sits relative to the ```root```.  When
 ### Height
 The height of any node is measured through the deepest ```child``` node it has. So the height of Benjen Stark is 0, while the height of Rickard Stark is 2.
 
-## Designing a Data Structure
+## Designing a General Tree Data Structure
 ### Strategy
-In order to store this data structure in memory, we have to come up with an efficient design to do so. Lets first try represent each node in a Java class called ```TreeNode```. To be able to sew together a tree, we'll have each node host 4 instance variables:
+Lets first try represent each node in a Java class called ```TreeNode```. To be able to sew together a ```Tree``` from ```TreeNodes```, we'll have each node host 5 instance variables:
 
-1. <String>```name``` - The family member's name
-2. <TreeNode>```firstChild``` - A pointer to the first child's TreeNode Object, if any
-3. <TreeNode>```nextSibling``` - A pointer to a sibling's TreeNode Object, if any
-4. <TreeNode>```previousNode``` - A pointer to the TreeNode Object that chained right before this one
+1. <String>```data``` - A String containing the Stark family member's name
+2. <TreeNode>```firstChild``` - A pointer to a child of this ```TreeNode```, if any
+3. <TreeNode>```nextSibling``` - A pointer to a sibling of this ```TreeNode```, if any
+4. <TreeNode>```previousNode``` - A pointer to the ```TreeNode``` that pointed to this one (see diagram below)
  
  ### Implementation
 ```java
