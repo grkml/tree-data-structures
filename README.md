@@ -39,24 +39,21 @@ public class TreeNode {
     protected String data;
     protected TreeNode myRoot;
     
+    public E getData() { return data; }
+    
     public TreeNode(String data, TreeNode nextSibling, TreeNode firstChild, TreeNode previousNode) {
         this.firstChild = firstChild;
         this.nextSibling = nextSibling;
         this.previousNode = previousNode;
         this.data = data;
-        myRoot = null;
+        this.myRoot = null;
     }
    
-    public TreeNode() {
-        this(null, null, null, null);
-    }
-   
-    public E getData() { return data; }
-
-    // Used by ```Tree``` later on to add create linked Nodes
-    protected TreeNode( E data, TreeNode<E> nextSibling, TreeNode<E> firstChild, TreeNode<E> previousNode, TreeNode<E> root ) {
+    public TreeNode() { this(null, null, null, null); }
+    
+    protected TreeNode(String data, TreeNode nextSibling, TreeNode firstChild, TreeNode previousNode, TreeNode root ) {
         this(data, nextSibling, firstChild, previousNode);
-        myRoot = root;
+        this.myRoot = root;
     }
 }
 ```
