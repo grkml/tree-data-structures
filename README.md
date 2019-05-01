@@ -23,13 +23,14 @@ In order to store this data structure in memory, we have to come up with an effi
 2. <TreeNode>```firstChild``` - A pointer to the first child's TreeNode Object, if any
 3. <TreeNode>```nextSibling``` - A pointer to a sibling's TreeNode Object, if any
 4. <TreeNode>```previousNode``` - A pointer to the TreeNode Object that chained right before this one
+ 
  ### Implementation
 ```java
-public class TreeNode<E> {
-   protected TreeNode<E> firstChild, nextSibling, previousNode;
+public class TreeNode {
+   protected TreeNode firstChild, nextSibling, previousNode;
    protected String Name;
 
-   public TreeNode( E data, TreeNode<E> nextSibling, TreeNode<E> firstChild, TreeNode<E> previousNode ) {
+   public TreeNode( String data, TreeNode nextSibling, TreeNode firstChild, TreeNode previousNode ) {
       this.firstChild = firstChild; 
       this.nextSibling = nextSibling;
       this.previousNode = previousNode;
