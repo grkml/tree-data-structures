@@ -15,7 +15,7 @@ Depth refers to the level at which a node sits relative to the ```root```.  When
 ### Height
 The height of any node is measured through the deepest ```child``` node it has. So the height of Benjen Stark is 0, while the height of Rickard Stark is 2.
 
-## Designing the Data Structure
+## Designing a Data Structure
 ### Strategy
 In order to store this data structure in memory, we have to come up with an efficient design to do so. Lets first try represent each node in a Java class called ```TreeNode```. To be able to sew together a tree, we'll have each node host 3 sets of data:
 
