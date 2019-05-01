@@ -17,33 +17,41 @@ The height of any node is measured through the deepest ```child``` node it has. 
 
 ## Designing a Data Structure
 ### Strategy
-In order to store this data structure in memory, we have to come up with an efficient design to do so. Lets first try represent each node in a Java class called ```TreeNode```. To be able to sew together a tree, we'll have each node host 3 sets of data:
+In order to store this data structure in memory, we have to come up with an efficient design to do so. Lets first try represent each node in a Java class called ```TreeNode```. To be able to sew together a tree, we'll have each node host 4 instance variables:
 
-1. ```name``` - The family member's name
-2. ```firstChild``` - A pointer to the first child's TreeNode Object, if any
-3. ```nextSibling``` - A pointer to a sibling's TreeNode Object, if any
+1. <String>```name``` - The family member's name
+2. <TreeNode>```firstChild``` - A pointer to the first child's TreeNode Object, if any
+3. <TreeNode>```nextSibling``` - A pointer to a sibling's TreeNode Object, if any
+4. <TreeNode>```previousNode``` - A pointer to the TreeNode Object that chained right before this one
  ### Implementation
 ```java
-class TreeNode {
-    String name; // ie "Ned Stark"
-    TreeNode firstChild // pointer to a child
-    TreeNode nextSibling; // pointer to a sibling
-    
-    public TreeNode() { // some constructor Logic }
+public class TreeNode<E> {
+   protected TreeNode<E> firstChild, nextSibling, previousNode;
+   protected String Name;
+
+   public TreeNode( E data, TreeNode<E> nextSibling, TreeNode<E> firstChild, TreeNode<E> previousNode ) {
+      this.firstChild = firstChild; 
+      this.nextSibling = nextSibling;
+      this.previousNode = previousNode;
+      this.name = name;
+   }
+   
+   public TreeNode() { this(null, null, null, null); }
 }
 ```
 ### Data Stored
-| ```<TreeNode> this``` | ```this.firstChild``` | ```this.nextSibling``` |
-| :--: | :--: | :--: |
-| ```rickardStark``` | ```nedStark``` | ```null``` |
-| ```nedStark``` | ```robbStark``` | ```brandonStark``` |
-| ```brandonStark``` | ```null``` | ```benjenStark``` |
-| ```benjenStark``` | ```null``` | ```lyannaStark``` |
-| ```lyannaStark``` | ```jonSnow``` | ```null``` |
-| ```robbStark``` | ```null``` | ```sansaStark``` |
-| ```sansaStark``` | ```null``` | ```aryaStark``` |
-| ```aryaStark``` | ```null``` | ```branStark``` |
-| ```branStark``` | ```null``` | ```rickonStark``` |
-| ```rickonStark``` | ```null``` | ```null``` |
+| ```<TreeNode> this``` | ```this.firstChild``` | ```this.nextSibling``` | ```this.previousNode``` |
+| :--: | :--: | :--: | :--: |
+| ```rickardStark``` | ```nedStark``` | ```null``` | ```null``` |
+| ```nedStark``` | ```robbStark``` | ```brandonStark``` | ```rickardStark``` |
+| ```brandonStark``` | ```null``` | ```benjenStark``` | ```nedStark``` |
+| ```benjenStark``` | ```null``` | ```lyannaStark``` | ```brandonStark``` |
+| ```lyannaStark``` | ```jonSnow``` | ```null``` | ```benjenStark``` |
+| ```robbStark``` | ```null``` | ```sansaStark``` | ```nedStark``` |
+| ```sansaStark``` | ```null``` | ```aryaStark``` | ```robbStark``` |
+| ```aryaStark``` | ```null``` | ```branStark``` | ```sansaStark``` |
+| ```branStark``` | ```null``` | ```rickonStark``` | ```aryaStark``` |
+| ```rickonStark``` | ```null``` | ```null``` | ```branStark``` |
+| ```jonSnow``` | ```null``` | ```null``` | ```lyannaStark``` |
 ### Logical Representation
 <img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg">
