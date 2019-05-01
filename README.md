@@ -1,6 +1,5 @@
-# Tree Data Structures & The Binary Search Tree
-This repository implements the binary search tree data structure in Java. It also aims to provide a brief background on the tree data structure and its various uses for educational purposes.
-## Tree Data Structure Terminology
+# Binary Search Trees
+## Understanding General Tree Data Structures First!
 
 Lets take a look at one of my favorite implementations of the tree data structure and identify some terminology along the way:
 
