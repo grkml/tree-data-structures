@@ -1,2 +1,11 @@
-# binary-search-tree-lazy-deletion
-Implementing a binary search tree data structure with lazy deletion in Java
+# Binary Search Trees
+## Tree Data Structures in General
+<p align="center">
+  <img width="100%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTree.jpg">
+</p>
+
+
+*
+*
+*
+*
