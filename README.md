@@ -123,7 +123,7 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
 
 ### Frame 2 - `find(rickardStark, "Arya Stark", 0)`
 
-<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td>rickardStark</td></tr><tr><td>level</td><td>Integer</td><td>0</td></tr><tr><td>&gt;&gt; return</td><td>TreeNode</td><td>find(nedStark, "Arya Stark", 1)</td></tr></table>
+<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>0</td></tr><tr><td>&gt;&gt; return</td><td>TreeNode</td><td>find(nedStark, "Arya Stark", 1) ?</td></tr></table>
 
 ```java
 //  private TreeNode find(TreeNode root, String data, int level) {
@@ -136,12 +136,84 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
 //          return root;
 
 //      if (level > 0) {
-//          returnValue = find(root.nextSibling, data, level); // Recursive Call
+//          returnValue = find(root.nextSibling, data, level);
 //          if (returnValue != null)
 //              return returnValue;
 //      }
 
-        return find(root.firstChild, data, ++level); // Recursive Call
+        return find(root.firstChild, data, ++level);
 //  }
 ```
 
+
+### Frame 3 - `find(nedStark, "Arya Stark", 1)`
+
+<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/nedStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>1</td></tr><tr><td>returnValue</td><td>TreeNode</td><td>find(brandonStark, "Arya Stark", 1) ?</td></tr></table>
+
+```java
+//  private TreeNode find(TreeNode root, String data, int level) {
+//      TreeNode returnValue;
+        
+//      if (mSize == 0 || root == null) // Basecase 1 (nothing to search)
+            return null;
+        
+//      if (root.data.equals(data)) // Basecase 2 (found!)
+//          return root;
+
+        if (level > 0) {
+            returnValue = find(root.nextSibling, data, level);
+//          if (returnValue != null)
+//              return returnValue;
+        }
+
+//      return find(root.firstChild, data, ++level);
+//  }
+```
+
+### Frame 4 - `find(brandonStark, "Arya Stark", 1) `
+
+<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/brandonStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>1</td></tr><tr><td>returnValue</td><td>TreeNode</td><td>find(benjenStark, "Arya Stark", 1) ?</td></tr></table>
+
+```java
+//  private TreeNode find(TreeNode root, String data, int level) {
+//      TreeNode returnValue;
+        
+//      if (mSize == 0 || root == null) // Basecase 1 (nothing to search)
+            return null;
+        
+//      if (root.data.equals(data)) // Basecase 2 (found!)
+//          return root;
+
+        if (level > 0) {
+            returnValue = find(root.nextSibling, data, level);
+//          if (returnValue != null)
+//              return returnValue;
+        }
+
+//      return find(root.firstChild, data, ++level);
+//  }
+```
+
+### Frame 4 - `find(benjenStark, "Arya Stark", 1) `
+
+<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/benjenStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>1</td></tr><tr><td>returnValue</td><td>TreeNode</td><td>find(benjenStark, "Arya Stark", 1) ?</td></tr></table>
+
+```java
+//  private TreeNode find(TreeNode root, String data, int level) {
+//      TreeNode returnValue;
+        
+//      if (mSize == 0 || root == null) // Basecase 1 (nothing to search)
+            return null;
+        
+//      if (root.data.equals(data)) // Basecase 2 (found!)
+//          return root;
+
+        if (level > 0) {
+            returnValue = find(root.nextSibling, data, level);
+//          if (returnValue != null)
+//              return returnValue;
+        }
+
+//      return find(root.firstChild, data, ++level);
+//  }
+```
