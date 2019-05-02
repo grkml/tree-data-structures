@@ -717,3 +717,194 @@ Because local variable `root == null`, this frame hits the following base case f
      <td>returning value to 5</td> 
     </tr>
 </table>
+
+## Frame 5 - receives return value from 11, returns value to 4
+Frame 5 now has received `null` from 11, so it finishes the following code block from 
+
+`private TreeNode find(TreeNode root, String data, int level)`
+```java
+        return find(root.firstChild, data, ++level); // <-------- Recursive return into 4
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 5 (benjenStark)</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/benjenStark.jpg"></td>
+   </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+  </tr>
+   <tr>
+     <td>stackResponse</td>
+     <td>null</td>
+     <td>received from 6</td> 
+   </tr>
+   <tr>
+     <td>return value</td>
+     <td>null</td>
+     <td>received from 11, returning to 4</td> 
+    </tr>
+</table>
+
+## Frame 4 receives return value from 5 and calls 12
+Frame 4 now has received `stackResponse == null` from 5, so it runs the following code block from 
+
+`private TreeNode find(TreeNode root, String data, int level)`
+```java
+        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 12
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 4 (brandonStark)</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/brandonStark.jpg"></td>
+   </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+  </tr>
+   <tr>
+     <td>stackResponse</td>
+     <td>null</td>
+     <td>received from 5</td> 
+   </tr>
+   <tr>
+     <td>return value</td>
+     <td>find(null, "Arya Stark", 2)</td>
+     <td>awaiting response from 12</td> 
+    </tr>
+</table>
+
+## Frame 12 returns value to 4
+Because local variable `root == null`, this frame hits the following base case from 
+
+`private TreeNode find(TreeNode root, String data, int level)`
+```java
+        if (mSize == 0 || root == null)
+            return null; // <-------- Recursive return into Frame 4
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 12 (brandonStark.firstChild == null)</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td>null</td>
+   </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>2</td>
+  </tr>
+   <tr>
+     <td>return value</td>
+     <td>null</td>
+     <td>returning value to 4</td> 
+    </tr>
+</table>
+
+## Frame 4 - receives return value from 12, returns value to 3
+Frame 4 now has received `null` from 12, so it finishes the following code block from 
+
+`private TreeNode find(TreeNode root, String data, int level)`
+```java
+        return find(root.firstChild, data, ++level); // <-------- Recursive return into 3
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 4 (bradonStark)</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/bradonStark.jpg"></td>
+   </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+  </tr>
+   <tr>
+     <td>stackResponse</td>
+     <td>null</td>
+     <td>received from 4</td> 
+   </tr>
+   <tr>
+     <td>return value</td>
+     <td>null</td>
+     <td>received from 12, returning to 3</td> 
+    </tr>
+</table>
+
+## Frame 3 receives return value from 4 and calls 13
+Frame 3 now has received `stackResponse == null` from 4, so it runs the following code block from 
+
+`private TreeNode find(TreeNode root, String data, int level)`
+```java
+        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 13
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 3 (nedStark)</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/nedStark.jpg"></td>
+   </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+  </tr>
+   <tr>
+     <td>stackResponse</td>
+     <td>null</td>
+     <td>received from 4</td> 
+   </tr>
+   <tr>
+     <td>return value</td>
+     <td>find(robbStark, "Arya Stark", 2)</td>
+     <td>awaiting response from 13</td> 
+    </tr>
+</table>
