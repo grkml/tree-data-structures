@@ -123,7 +123,8 @@ TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1a
   </tr>
   <tr>
     <td>result</td>
-    <td>** starkFamilyTree.find("Arya Stark") **</td>
+    <td>starkFamilyTree.find("Arya Stark")</td>
+    <td>** awaiting return from 1a **</td> 
   </tr>
 </table>
 
