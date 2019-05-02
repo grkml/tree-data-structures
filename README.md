@@ -63,7 +63,7 @@ public class TreeNode {
 | ```rickonStark``` | ```null``` | ```null``` | ```branStark``` |
 | ```jonSnow``` | ```null``` | ```null``` | ```lyannaStark``` |
 
-### Implementing a ```Tree```
+## Recursion, Recursion, Recursion
 Let's take a mini tour of a barebones ```Tree``` class linking together ```TreeNodes```. We'll focus on the ```find()``` method for now and assume an object of this class called ```starkFamilyTree``` is already setup.
 
 ```java
