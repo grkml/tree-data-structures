@@ -132,7 +132,7 @@ This frame runs the following code statement from
 
 `public TreeNode find(String data)`
 ```java
-        return find(mRoot, data, 0); // Call into Frame 2a
+        return find(mRoot, data, 0); // <-------- Call into Frame 2a
 ```
 <table>
   <tr>
@@ -343,7 +343,7 @@ Because local variable root == null, this frame hits the following basecase from
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (mSize == 0 || root == null)
-            return null; <-------- Recursive return value into Frame 6a
+            return null; // <-------- Recursive return value into Frame 6a
 ```
 <table>
   <tr>
@@ -452,7 +452,7 @@ Because local variable root == null, this frame hits the following basecase from
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (mSize == 0 || root == null)
-            return null; <-------- Recursive return value into Frame 7b
+            return null; // <-------- Recursive return value into Frame 7b
 ```
 <table>
   <tr>
