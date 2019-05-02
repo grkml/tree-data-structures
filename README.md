@@ -109,7 +109,7 @@ Lets assume we want to find "Arya Stark" in the tree using the following code:
 TreeNode result = starkFamilyTree.find("Arya Stark");
 ```
 
-This is a recursive process that has many steps. You can follow along and note what the stack is returning at each step in the title
+This is a recursive process that has many steps. You can follow along and note what the stack is returning at each step marked with "**"
 
 ## Frame 0 (Global)
 This frame runs the following global code:
@@ -127,7 +127,7 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
   </tr>
   <tr>
     <td>** result **</td>
-    <td>starkFamilyTree.find("Arya Stark") ** return ** from Frame 1</td>
+    <td>** starkFamilyTree.find("Arya Stark") **</td>
   </tr>
 </table>
 
