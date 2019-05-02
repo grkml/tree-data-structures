@@ -363,7 +363,8 @@ Because local variable root == null, this frame hits the following basecase from
 
 
 ## Frame 6a - receives return value from 7a
-Frame 6a now has received stackResponse == null from 7a, so it runs the following code block from `private TreeNode find(TreeNode root, String data, int level)`
+Frame 6a now has received stackResponse == null from 7a, so it runs the following code block from 
+`private TreeNode find(TreeNode root, String data, int level)`
 ```java
         return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 7b
 ```
@@ -398,7 +399,9 @@ Frame 6a now has received stackResponse == null from 7a, so it runs the followin
 </table>
 
 ## Frame 7b
-Because it locally has `level > 0`, This frame hits the following code block from `private TreeNode find(TreeNode root, String data, int level)`
+Because it locally has `level > 0`, This frame hits the following code block from 
+
+`private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (level > 0) {
             stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 8a
