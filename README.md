@@ -305,7 +305,7 @@ This frame hits the following code block from `private TreeNode find(TreeNode ro
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 6</th>
+    <th colspan="2">Frame 6a</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -330,7 +330,7 @@ This frame hits the following code block from `private TreeNode find(TreeNode ro
 </table>
 
 ## Frame 7a
-This frame hits the following basecale from `private TreeNode find(TreeNode root, String data, int level)`
+This frame hits the following basecase from `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (mSize == 0 || root == null)
             return null; <-------- Recursive return value into Frame 6a
@@ -356,7 +356,43 @@ This frame hits the following basecale from `private TreeNode find(TreeNode root
     <td>1</td>
   </tr>
    <tr>
-     <td>** returnValue **</td>
+     <td>** return value **</td>
      <td>null</td>
+    </tr>
+</table>
+
+
+## Frame 6a
+Frame 6a now has returnValue == null, so it runs the following code block from `private TreeNode find(TreeNode root, String data, int level)`
+```java
+        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 7b
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 6a</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>returnValue</td>
+    <td>null</td>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/lyannaStark.jpg"></td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+  </tr>
+   <tr>
+     <td>** returnValue **</td>
+     <td>** find(jonSnow, "Arya Stark", 2); **</td>
     </tr>
 </table>
