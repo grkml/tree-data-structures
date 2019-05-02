@@ -102,11 +102,22 @@ public class Tree {
     }
 }
 ```
-### Traversing Trees is a Tricky Process
-Lets assume we want to run this code:
+## Recusrive Steps
+Lets assume we want to find "Arya Stark" in the tree. This is a recursive process that has many steps. You can follow along and note the variables along each step.
+### Frame 0 - Main Program
+##### Code Being Run:
 ```java
 TreeNode result = starkFamilyTree.find("Arya Stark");
 ```
-This function call generates a stack frame:
+##### Stack Frame:
+<table><tr><th>Data</th><th>Type</th><th>Values</th></tr><tr><td>result</td><td>TreeNode</td><td>starkFamilyTree.find("Arya Stark")</td></tr></table>
 
+### Frame 1 - Main Program
+##### Code Being Run:
+```java
+//  public TreeNode find(String data) { 
+        return find(mRoot, data, 0); // Runs private recursive version of find()
+//  }
+```
+##### Stack Frame:
 <table><tr><th>Data</th><th>Type</th><th>Values</th></tr><tr><td>result</td><td>TreeNode</td><td>starkFamilyTree.find("Arya Stark")</td></tr></table>
