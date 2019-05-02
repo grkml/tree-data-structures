@@ -113,7 +113,7 @@ Here's exactly what would happen:
 
 #### Step 1 - Start with ```mRoot``` = ```rickardStark```
 
-![rickardStark]("https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg")
+![alt text](https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg)
 
 ```java
 //  public TreeNode find(String data) { 
