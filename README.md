@@ -105,15 +105,37 @@ public class Tree {
 ## Recusrive Steps
 Lets assume we want to find "Arya Stark" in the tree. This is a recursive process that has many steps. You can follow along and note the variables along each step.
 ### Frame 0 - Main Program
+<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>result</td><td>TreeNode</td><td>starkFamilyTree.find("Arya Stark") ?</td></tr></table>
 ```java
 TreeNode result = starkFamilyTree.find("Arya Stark");
 ```
-<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>result</td><td>TreeNode</td><td>starkFamilyTree.find("Arya Stark")</td></tr></table>
-
-### Frame 1
+### Frame 1 - `starkFamilyTree.find("Arya Stark")`
+<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>mRoot</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>0</td></tr><tr><td>&gt;&gt; return</td><td>TreeNode</td><td>find(rickardStark, "Arya Stark", 0) ?</td></tr></table>
 ```java
 //  public TreeNode find(String data) { 
         return find(mRoot, data, level);
 //  }
 ```
-<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>mRoot</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>0</td></tr><tr><td>&gt;&gt; return</td><td>TreeNode</td><td>find(mRoot, data, level)</td></tr></table>
+
+### Frame 2 - `find(rickardStark, "Arya Stark", 0)`
+
+```java
+//  private TreeNode find(TreeNode root, String data, int level) {
+//      TreeNode returnValue;
+        
+//      if (mSize == 0 || root == null) // Basecase 1 (nothing to search)
+            return null;
+        
+//      if (root.data.equals(data)) // Basecase 2 (found!)
+//          return root;
+
+        if (level > 0) {
+            returnValue = find(root.nextSibling, data, level); // Recursive Call
+            if (returnValue != null)
+                return returnValue;
+        }
+
+//      return find(root.firstChild, data, ++level); // Recursive Call
+//  }
+```
+
