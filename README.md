@@ -118,16 +118,16 @@ This frame is seeking an assignment to the variable `result`
     <th colspan="4">Stack Frame Global</th>
   </tr>
   <tr>
-    <td>local variable</td>
-    <td>type</td>
-    <td>value</td>
-    <td>Notes</td>
+    <th>local variable</th>
+    <th>type</th>
+    <th>value</th>
+    <th>Relation to the Call Stack</th>
   </tr>
   <tr>
     <td>result</td>
     <td>TreeNode</td>
-    <td>???</td>
-    <td>Awaiting return from Stack Frame 1</td>
+    <td>starkFamilyTree.find("Arya Stark") ???</td>
+    <td>return value from Stack Frame 1</td>
   </tr>
 </table>
 
