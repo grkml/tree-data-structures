@@ -107,15 +107,15 @@ Lets assume we want to find "Arya Stark" in the tree. To do this we traverse the
 
 This is a recursive process that has many steps. You can follow along and note what the stack is returning at each step marked with "**"
 
-## Frame 0a (Global) calls 1a
+## Frame 0 (Global) calls 1
 This frame runs the following global code statement:
 ```java
-TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1a
+TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1
 ```
 
 <table>
   <tr>
-    <th colspan="2">Frame 0a (Global Level Code)</th>
+    <th colspan="2">Frame 0 (Global)</th>
   </tr>
   <tr>
     <th>global variable</th>
@@ -124,20 +124,20 @@ TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1a
   <tr>
     <td>result</td>
     <td>starkFamilyTree.find("Arya Stark")</td>
-    <td>awaiting return from 1a</td> 
+    <td>awaiting return from 1</td> 
   </tr>
 </table>
 
-## Frame 1a calls 2a
+## Frame 1 calls 2
 This frame runs the following code statement from 
 
 `public TreeNode find(String data)`
 ```java
-        return find(mRoot, data, 0); // <-------- Recursive Call into Frame 2a
+        return find(mRoot, data, 0); // <-------- Recursive Call into Frame 2
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 1a (Entering Recursion to Traverse Nodes) </th>
+    <th colspan="2">Frame 1 (entering recursion) </th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -154,20 +154,20 @@ This frame runs the following code statement from
    <tr>
      <td>return value</td>
      <td>find(rickardStark, "Arya Stark", 0)</td>
-     <td>awaiting return from 2a</td> 
+     <td>awaiting return from 2</td> 
     </tr>
 </table>
 
-## Frame 2a calls 3a
+## Frame 2 calls 3
 Because local variable `level == 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
-        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 3a
+        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 3
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 2a (rickardStark)</th>
+    <th colspan="2">Frame 2 (rickardStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -188,24 +188,24 @@ Because local variable `level == 0`, This frame hits the following code block fr
    <tr>
      <td>return value</td>
      <td>find(nedStark, "Arya Stark", 1)</td>
-     <td>awaiting return from 3a</td> 
+     <td>awaiting return from 3</td> 
     </tr>
 </table>
 
-## Frame 3a calls 4a
+## Frame 3 calls 4
 Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (level > 0) {
-            stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 4a
+            stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 4
             if (stackResponse != null)
                 return stackResponse;
         }
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 3a (nedStark)</th>
+    <th colspan="2">Frame 3 (nedStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -226,24 +226,24 @@ Because local variable `level > 0`, This frame hits the following code block fro
    <tr>
      <td>stackResponse</td>
      <td>find(brandonStark, "Arya Stark", 1)</td>
-     <td>awaiting return from 4a</td> 
+     <td>awaiting return from 4</td> 
     </tr>
 </table>
 
-## Frame 4a calls 5a
+## Frame 4 calls 5
 Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (level > 0) {
-            stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 5a
+            stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 5
             if (stackResponse != null)
                 return stackResponse;
         }
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 4a (brandonStark)</th>
+    <th colspan="2">Frame 4 (brandonStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -264,24 +264,24 @@ Because local variable `level > 0`, This frame hits the following code block fro
    <tr>
      <td>stackResponse</td>
      <td>find(benjenStark, "Arya Stark", 1)</td>
-     <td>awaiting return from 5a</td> 
+     <td>awaiting return from 5</td> 
     </tr>
 </table>
 
-## Frame 5a calls 6a
+## Frame 5 calls 6
 Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (level > 0) {
-            stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 6a
+            stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 6
             if (stackResponse != null)
                 return stackResponse;
         }
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 5a (benjenStark)</th>
+    <th colspan="2">Frame 5 (benjenStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -306,20 +306,20 @@ Because local variable `level > 0`, This frame hits the following code block fro
     </tr>
 </table>
 
-## Frame 6a calls 7a
+## Frame 6 calls 7
 Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (level > 0) {
-            stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 7a
+            stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 7
             if (stackResponse != null)
                 return stackResponse;
         }
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 6a (lyannaStark)</th>
+    <th colspan="2">Frame 6 (lyannaStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -340,21 +340,21 @@ Because local variable `level > 0`, This frame hits the following code block fro
    <tr>
      <td>stackResponse</td>
      <td>find(null, "Arya Stark", 1)</td>
-     <td>awaiting return from 7a</td> 
+     <td>awaiting return from 7</td> 
     </tr>
 </table>
 
-## Frame 7a returns value to 6a
+## Frame 7 returns value to 6
 Because local variable `root == null`, this frame hits the following basecase from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (mSize == 0 || root == null)
-            return null; // <-------- Recursive return value into Frame 6a
+            return null; // <-------- Recursive return value into Frame 6
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 7a (null  because lyannaStark.nextSibling == null)</th>
+    <th colspan="2">Frame 7 (lyannaStark.nextSibling == null)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -375,21 +375,21 @@ Because local variable `root == null`, this frame hits the following basecase fr
    <tr>
      <td>return value</td>
      <td>null</td>
-     <td>returning value to 6a</td> 
+     <td>returning value to 6</td> 
     </tr>
 </table>
 
 
-## Frame 6a - receives return value from 7a & calls 7b
-Frame 6a now has received `stackResponse == null` from 7a, so it runs the following code block from 
+## Frame 6 - receives return value from 7 & calls 8
+Frame 6a now has received `stackResponse == null` from 7, so it runs the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
-        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 7b
+        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 8
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 6a</th>
+    <th colspan="2">Frame 6 (lyannaStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -410,29 +410,29 @@ Frame 6a now has received `stackResponse == null` from 7a, so it runs the follow
    <tr>
     <td>stackResponse</td>
     <td>null</td>
-    <td>recieved from 7a</td>
+    <td>recieved from 7</td>
   </tr>
    <tr>
      <td>return value</td>
      <td>find(jonSnow, "Arya Stark", 2)</td>
-     <td>awaiting return from 7b</td> 
+     <td>awaiting return from 8</td> 
     </tr>
 </table>
 
-## Frame 7b calls 8a
+## Frame 8 calls 9
 Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (level > 0) {
-            stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 8a
+            stackResponse = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 9
             if (stackResponse != null)
                 return stackResponse;
         }
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 7b</th>
+    <th colspan="2">Frame 8 (jonSnow)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -453,21 +453,21 @@ Because local variable `level > 0`, This frame hits the following code block fro
    <tr>
      <td>stackResonse</td>
      <td>find(null, "Arya Stark", 2)</td>
-     <td>awaiting return from 7b</td> 
+     <td>awaiting return from 9</td> 
     </tr>
 </table>
 
-## Frame 8a returns value to 7b
+## Frame 9 returns value to 8
 Because local variable `root == null`, this frame hits the following basecase from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (mSize == 0 || root == null)
-            return null; // <-------- Recursive return value into Frame 7b
+            return null; // <-------- Recursive return value into Frame 8
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 8a</th>
+    <th colspan="2">Frame 9 (jonSnow.nextSibling == null)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -488,20 +488,20 @@ Because local variable `root == null`, this frame hits the following basecase fr
    <tr>
      <td>return value</td>
      <td>null</td>
-     <td>returning value to 7b</td> 
+     <td>returning value to 8</td> 
     </tr>
 </table>
 
-## Frame 7b - receives return value from 8a & calls 8b
+## Frame 8 - receives return value from 9 & calls 10
 Frame 7b now has received `stackResponse == null` from 7a, so it runs the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
-        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 7b
+        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 10
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 7b</th>
+    <th colspan="2">Frame 8 (jonSnow)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -522,11 +522,11 @@ Frame 7b now has received `stackResponse == null` from 7a, so it runs the follow
    <tr>
     <td>stackResponse</td>
     <td>null</td>
-    <td>recieved from 8a</td> 
+    <td>recieved from 9</td> 
   </tr>
    <tr>
      <td>return value</td>
      <td>find(null, "Arya Stark", 3)</td>
-     <td>awaiting return from 8a</td> 
+     <td>awaiting return from 10</td> 
     </tr>
 </table>
