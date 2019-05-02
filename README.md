@@ -115,7 +115,7 @@ TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1a
 
 <table>
   <tr>
-    <th colspan="2">Frame 0a (Global)</th>
+    <th colspan="2">Frame 0a (Global Level Code)</th>
   </tr>
   <tr>
     <th>global variable</th>
@@ -133,11 +133,11 @@ This frame runs the following code statement from
 
 `public TreeNode find(String data)`
 ```java
-        return find(mRoot, data, 0); // <-------- Call into Frame 2a
+        return find(mRoot, data, 0); // <-------- Recursive Call into Frame 2a
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 1a</th>
+    <th colspan="2">Frame 1a (Entering Recursion to Traverse Nodes) </th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -145,7 +145,7 @@ This frame runs the following code statement from
   </tr>
   <tr>
     <td>mRoot</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"> rickardStark</td>
   </tr>
   <tr>
     <td>data</td>
@@ -167,7 +167,7 @@ Because local variable `level == 0`, This frame hits the following code block fr
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 2a</th>
+    <th colspan="2">Frame 2a (rickardStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -205,7 +205,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 3a</th>
+    <th colspan="2">Frame 3a (nedStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -243,7 +243,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 4a</th>
+    <th colspan="2">Frame 4a (brandonStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -281,7 +281,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 5a</th>
+    <th colspan="2">Frame 5a (benjenStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -319,7 +319,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 6a</th>
+    <th colspan="2">Frame 6a (lyannaStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -354,7 +354,7 @@ Because local variable `root == null`, this frame hits the following basecase fr
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 7a</th>
+    <th colspan="2">Frame 7a (null  because lyannaStark.nextSibling == null)</th>
   </tr>
   <tr>
     <th>local variable</th>
