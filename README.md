@@ -107,15 +107,15 @@ Lets assume we want to find "Arya Stark" in the tree. To do this we traverse the
 
 This is a recursive process that has many steps. You can follow along and note what the stack is returning at each step marked with "**"
 
-## Frame 0 (Global) calls 1
+## Global - calls Function
 This frame runs the following global code statement:
 ```java
-TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1
+TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Function
 ```
 
 <table>
   <tr>
-    <th colspan="2">Frame 0 (Global)</th>
+    <th colspan="2">Stack Frame: Global</th>
   </tr>
   <tr>
     <th>global variable</th>
@@ -128,16 +128,16 @@ TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1
   </tr>
 </table>
 
-## Frame 1 calls 2
+## Function - calls Node 0
 This frame runs the following code statement from 
 
 `public TreeNode find(String data)`
 ```java
-        return find(mRoot, data, 0); // <-------- Recursive Call into Frame 2
+        return find(mRoot, data, 0); // <-------- Recursive Call into Node 0
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 1 (entering recursion) </th>
+    <th colspan="2">Stack Frame | Function</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -145,7 +145,7 @@ This frame runs the following code statement from
   </tr>
   <tr>
     <td>mRoot</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"> rickardStark</td>
+    <td>rickardStark</td>
   </tr>
   <tr>
     <td>data</td>
@@ -158,16 +158,17 @@ This frame runs the following code statement from
     </tr>
 </table>
 
-## Frame 2 calls 3
+## Node 0 - calls Node 1
 Because local variable `level == 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
-        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 3
+        return find(root.firstChild, data, ++level); // <-------- Recursive call into Node 1 (nedStark)
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 2 (rickardStark)</th>
+    <th>Stack Frame</th>
+    <th>Node 0 (rickardStark)</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -192,7 +193,7 @@ Because local variable `level == 0`, This frame hits the following code block fr
     </tr>
 </table>
 
-## Frame 3 calls 4
+## Frame 3 - calls 4
 Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
@@ -230,7 +231,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
     </tr>
 </table>
 
-## Frame 4 calls 5
+## Frame 4 - calls 5
 Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
@@ -268,7 +269,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
     </tr>
 </table>
 
-## Frame 5 calls 6
+## Frame 5 - calls 6
 Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
@@ -306,7 +307,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
     </tr>
 </table>
 
-## Frame 6 calls 7
+## Frame 6 - calls 7
 Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
@@ -344,7 +345,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
     </tr>
 </table>
 
-## Frame 7 returns value to 6
+## Frame 7 - returns value to 6
 Because local variable `root == null`, this frame hits the following basecase from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
@@ -419,7 +420,7 @@ Frame 6 now has received `stackResponse == null` from 7, so it runs the followin
     </tr>
 </table>
 
-## Frame 8 calls 9
+## Frame 8 - calls 9
 Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
@@ -457,7 +458,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
     </tr>
 </table>
 
-## Frame 9 returns value to 8
+## Frame 9 - returns value to 8
 Because local variable `root == null`, this frame hits the following basecase from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
@@ -531,7 +532,7 @@ Frame 8 now has received `stackResponse == null` from 9, so it runs the followin
     </tr>
 </table>
 
-## Frame 10 returns value to 8
+## Frame 10 - returns value to 8
 Because local variable `root == null`, this frame hits the following basecase from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
@@ -757,7 +758,7 @@ Frame 5 now has received `null` from 11, so it finishes the following code block
     </tr>
 </table>
 
-## Frame 4 receives return value from 5 and calls 12
+## Frame 4 - receives return value from 5 and calls 12
 Frame 4 now has received `stackResponse == null` from 5, so it runs the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
@@ -796,7 +797,7 @@ Frame 4 now has received `stackResponse == null` from 5, so it runs the followin
     </tr>
 </table>
 
-## Frame 12 returns value to 4
+## Frame 12 - returns value to 4
 Because local variable `root == null`, this frame hits the following base case from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
@@ -861,7 +862,7 @@ Frame 4 now has received `null` from 12, so it finishes the following code block
    <tr>
      <td>stackResponse</td>
      <td>null</td>
-     <td>received from 4</td> 
+     <td>received from 5</td> 
    </tr>
    <tr>
      <td>return value</td>
@@ -870,7 +871,7 @@ Frame 4 now has received `null` from 12, so it finishes the following code block
     </tr>
 </table>
 
-## Frame 3 receives return value from 4 and calls 13
+## Frame 3 - receives return value from 4 and calls 13
 Frame 3 now has received `stackResponse == null` from 4, so it runs the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
