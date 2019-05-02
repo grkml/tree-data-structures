@@ -124,7 +124,7 @@ TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1a
   <tr>
     <td>result</td>
     <td>starkFamilyTree.find("Arya Stark")</td>
-    <td>** awaiting return from 1a **</td> 
+    <td>awaiting return from 1a</td> 
   </tr>
 </table>
 
@@ -153,12 +153,13 @@ This frame runs the following code statement from
   </tr>
    <tr>
      <td>return value</td>
-     <td>** find(rickardStark, "Arya Stark", 0) **</td>
+     <td>find(rickardStark, "Arya Stark", 0)</td>
+     <td>awaiting return from 2a</td> 
     </tr>
 </table>
 
 ## Frame 2a calls 3a
-Because of its local variables, this frame hits the following code block from 
+Because local variable `level == 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -186,12 +187,13 @@ Because of its local variables, this frame hits the following code block from
   </tr>
    <tr>
      <td>return value</td>
-     <td>** find(nedStark, "Arya Stark", 1) **</td>
+     <td>find(nedStark, "Arya Stark", 1)</td>
+     <td>awaiting return from 3a</td> 
     </tr>
 </table>
 
 ## Frame 3a calls 4a
-Because of its local variables, this frame hits the following code block from 
+Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -223,12 +225,13 @@ Because of its local variables, this frame hits the following code block from
   </tr>
    <tr>
      <td>stackResponse</td>
-     <td>** find(brandonStark, "Arya Stark", 1) **</td>
+     <td>find(brandonStark, "Arya Stark", 1)</td>
+     <td>awaiting return from 4a</td> 
     </tr>
 </table>
 
 ## Frame 4a calls 5a
-Because of its local variables, this frame hits the following code block from 
+Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -260,12 +263,13 @@ Because of its local variables, this frame hits the following code block from
   </tr>
    <tr>
      <td>stackResponse</td>
-     <td>** find(benjenStark, "Arya Stark", 1) **</td>
+     <td>find(benjenStark, "Arya Stark", 1)</td>
+     <td>awaiting return from 5a</td> 
     </tr>
 </table>
 
 ## Frame 5a calls 6a
-Because of its local variables, this frame hits the following code block from 
+Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -297,12 +301,13 @@ Because of its local variables, this frame hits the following code block from
   </tr>
    <tr>
      <td>stackResponse</td>
-     <td>** find(lyannaStark, "Arya Stark", 1) **</td>
+     <td>find(lyannaStark, "Arya Stark", 1)</td>
+     <td>awaiting return from 6a</td> 
     </tr>
 </table>
 
 ## Frame 6a calls 7a
-Because of its local variables, this frame hits the following code block from 
+Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -334,12 +339,13 @@ Because of its local variables, this frame hits the following code block from
   </tr>
    <tr>
      <td>stackResponse</td>
-     <td>** find(null, "Arya Stark", 1) **</td>
+     <td>find(null, "Arya Stark", 1)</td>
+     <td>awaiting return from 7a</td> 
     </tr>
 </table>
 
 ## Frame 7a returns value to 6a
-Because local variable root == null, this frame hits the following basecase from 
+Because local variable `root == null`, this frame hits the following basecase from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -367,14 +373,15 @@ Because local variable root == null, this frame hits the following basecase from
     <td>1</td>
   </tr>
    <tr>
-     <td>** return value **</td>
+     <td>return value</td>
      <td>null</td>
+     <td>returning value to 6a</td> 
     </tr>
 </table>
 
 
 ## Frame 6a - receives return value from 7a & calls 7b
-Frame 6a now has received stackResponse == null from 7a, so it runs the following code block from 
+Frame 6a now has received `stackResponse == null` from 7a, so it runs the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -403,15 +410,17 @@ Frame 6a now has received stackResponse == null from 7a, so it runs the followin
    <tr>
     <td>stackResponse</td>
     <td>null</td>
+    <td>recieved from 7a</td>
   </tr>
    <tr>
      <td>return value</td>
-     <td>** find(jonSnow, "Arya Stark", 2); **</td>
+     <td>find(jonSnow, "Arya Stark", 2)</td>
+     <td>awaiting return from 7b</td> 
     </tr>
 </table>
 
 ## Frame 7b calls 8a
-Because it locally has `level > 0`, This frame hits the following code block from 
+Because local variable `level > 0`, This frame hits the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -443,12 +452,13 @@ Because it locally has `level > 0`, This frame hits the following code block fro
   </tr>
    <tr>
      <td>stackResonse</td>
-     <td>** find(null, "Arya Stark", 2); **</td>
+     <td>find(null, "Arya Stark", 2)</td>
+     <td>awaiting return from 7b</td> 
     </tr>
 </table>
 
 ## Frame 8a returns value to 7b
-Because local variable root == null, this frame hits the following basecase from 
+Because local variable `root == null`, this frame hits the following basecase from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -476,13 +486,14 @@ Because local variable root == null, this frame hits the following basecase from
     <td>2</td>
   </tr>
    <tr>
-     <td>** return value **</td>
+     <td>return value</td>
      <td>null</td>
+     <td>returning value to 7b</td> 
     </tr>
 </table>
 
 ## Frame 7b - receives return value from 8a & calls 8b
-Frame 7b now has received stackResponse == null from 7a, so it runs the following code block from 
+Frame 7b now has received `stackResponse == null` from 7a, so it runs the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -511,9 +522,11 @@ Frame 7b now has received stackResponse == null from 7a, so it runs the followin
    <tr>
     <td>stackResponse</td>
     <td>null</td>
+    <td>recieved from 8a</td> 
   </tr>
    <tr>
      <td>return value</td>
-     <td>** find(null, "Arya Stark", 3); **</td>
+     <td>find(null, "Arya Stark", 3)</td>
+     <td>awaiting return from 8a</td> 
     </tr>
 </table>
