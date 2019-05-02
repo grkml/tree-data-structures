@@ -63,7 +63,9 @@ public class TreeNode {
 | ```rickonStark``` | ```null``` | ```null``` | ```branStark``` |
 | ```jonSnow``` | ```null``` | ```null``` | ```lyannaStark``` |
 
-## Recursion, Recursion, Recursion
+## Recursion
+<img width="50%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/recursiveMeme.jpg">
+
 Let's take a mini tour of a barebones ```Tree``` class linking together ```TreeNodes```. We'll focus on the ```find()``` method for now and assume an object of this class called ```starkFamilyTree``` is already setup.
 
 ```java
@@ -100,3 +102,13 @@ public class Tree {
     }
 }
 ```
+### Traversing Trees is a Tricky Process
+Lets assume we want to run this code:
+```java
+// Assume starkFamilyTree is already built like Figure 2
+
+starkFamilyTree.find("Arya Stark");
+```
+Here's exactly what would happen:
+
+
