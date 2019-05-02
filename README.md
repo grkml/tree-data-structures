@@ -1,5 +1,4 @@
-# Binary Search Trees
-# Understanding General Tree Data Structures First!
+# Tree Data Structures
 
 Lets take a look at one of my favorite implementations of the tree data structure and identify some terminology along the way:
 
@@ -63,8 +62,7 @@ public class TreeNode {
 | ```rickonStark``` | ```null``` | ```null``` | ```branStark``` |
 | ```jonSnow``` | ```null``` | ```null``` | ```lyannaStark``` |
 
-# Recursion
-<img width="50%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/recursiveMeme.jpg">
+### Implementing a `Tree` class
 
 Let's take a mini tour of a barebones ```Tree``` class linking together ```TreeNodes```. We'll focus on the ```find()``` method for now and assume an object of this class called ```starkFamilyTree``` is already setup.
 
@@ -102,10 +100,15 @@ public class Tree {
     }
 }
 ```
-# Recursive Steps & Stack Frames
-Lets assume we want to find "Arya Stark" in the tree. To do this we traverse the tree through recursion in a number of steps. Recursive steps can be thought of as repetative runs of the same function, with each repetition having a different state. The state we refer to is called a stack frame that encapsulates local variables. Recrusion generates a stack of stack frames by calling the function over and over again. Stack frames keep piling up until we hit a basecase. Once the basecase is hit, the stack starts to undo itself, returning values to the frames that have been waiting in the stack.
+# Recursion
+<img width="50%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/recursiveMeme.jpg">
 
-This is a recursive process that has many steps. You can follow along and note what the stack is returning at each step marked with "**"
+To traverse a tree, and check out different nodes on the way we usually use recursion. I really like Mattias Petter Johansson's definition of recursion (check out his awesome YouTube channel [https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q]: here ):
+> Recursion is when a function calls itself until it doesn't. That is seriously all recursion is. It's really simple.
+
+With that in mind, we see that `private TreeNode find(TreeNode root, String data, int level)` calls itself mutltiple times. Each call, generates a Stack Frame (a snapshot of the call's local variables), and recursion aims to pile and unpile these Stack Frames. Luckily base cases help us break out of this cycle and eventually end up with one answer.
+
+Let's assume we have a `Tree` object named `starkFamilyTree` already setup, so we can try to find() `aryaStark`. Since a girl has many faces lol, we have to be very careful with our recursive process - it can get very complicated. Follow along if you like, this is the whole procedure...
 
 ## Global - calls Function
 This frame runs the following global code statement:
