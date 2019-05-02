@@ -111,14 +111,16 @@ starkFamilyTree.find("Arya Stark");
 ```
 Here's exactly what would happen:
 
-#### Step 1 - Start with ```mRoot``` = ```rickardStark```
+#### Step 1 - We Enter the Recusive Algorithm
+```java
+//  public TreeNode find(String data) { 
+        return find(mRoot, data, 0); // ENTERING HERE with mRoot = rickardStark and level = 0
+//  }
+```
+At each step of the way,
+
+We'll keep track of important values
 
 <table><tr><th rowspan="3"><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></th><th>root</th><th>rickardStark</th></tr><tr><td>firstChild</td><td>nedStark</td></tr><tr><td>nextSibling</td><td>null</td></tr><tr><td colspan="2">level</td><td>0</td></tr><tr><td colspan="2">returnValue</td><td>null</td></tr></table>
 
-![](https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg) 
 
-```java
-//  public TreeNode find(String data) { 
-        return find(mRoot, data, 0); // Runs private recursive version of find()
-//  }
-```
