@@ -111,4 +111,12 @@ starkFamilyTree.find("Arya Stark");
 ```
 Here's exactly what would happen:
 
+#### Step 1 - Start with ```mRoot``` = ```rickardStark```
 
+![rickardStark]("https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg")
+
+```java
+//  public TreeNode find(String data) { 
+        return find(mRoot, data, 0); // Runs private recursive version of find()
+//  }
+```
