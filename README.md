@@ -102,12 +102,8 @@ public class Tree {
     }
 }
 ```
-# Recusrive Steps
-Lets assume we want to find "Arya Stark" in the tree using the following code:
-
-```java
-TreeNode result = starkFamilyTree.find("Arya Stark");
-```
+# Recursive Steps & Stack Frames
+Lets assume we want to find "Arya Stark" in the tree. To do this we traverse the tree through recursion in a number of steps. Recursive steps can be thought of as repetative runs of the same function, with each repetition having a different state. The state we refer to is called a stack frame that encapsulates local variables. Recrusion generates a stack of stack frames by calling the function over and over again. Stack frames keep piling up until we hit a basecase. Once the basecase is hit, the stack starts to undo itself, returning values to the frames that have been waiting in the stack.
 
 This is a recursive process that has many steps. You can follow along and note what the stack is returning at each step marked with "**"
 
