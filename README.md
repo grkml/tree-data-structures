@@ -103,7 +103,7 @@ public class Tree {
 # Recursion
 <img width="50%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/recursiveMeme.jpg">
 
-To traverse a tree, and check out different nodes on the way we usually use recursion. I really like Mattias Petter Johansson's definition of recursion (check out his awesome YouTube channel [https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q]: here ):
+To traverse a tree, and check out different nodes on the way we usually use recursion. I really like Mattias Petter Johansson's definition of recursion (check out his awesome YouTube channel [Fun Fun Function](https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q))
 > Recursion is when a function calls itself until it doesn't. That is seriously all recursion is. It's really simple.
 
 With that in mind, we see that `private TreeNode find(TreeNode root, String data, int level)` calls itself mutltiple times. Each call, generates a Stack Frame (a snapshot of the call's local variables), and recursion aims to pile and unpile these Stack Frames. Luckily base cases help us break out of this cycle and eventually end up with one answer.
