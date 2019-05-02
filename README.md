@@ -105,23 +105,21 @@ public class Tree {
 ## Recusrive Steps
 Lets assume we want to find "Arya Stark" in the tree. This is a recursive process that has many steps. You can follow along and note what the stack is returning at each step in the title
 
-### Frame 0 - `result`
+##### Frame 0 - `result`
 <table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>result</td><td>TreeNode</td><td>starkFamilyTree.find("Arya Stark") ?</td></tr></table>
 
 ```java
 TreeNode result = starkFamilyTree.find("Arya Stark");
 ```
-### Frame 1 - `starkFamilyTree.find("Arya Stark")`
+##### Frame 1 - `starkFamilyTree.find("Arya Stark")`
 
 <table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>mRoot</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>0</td></tr><tr><td>&gt;&gt; return</td><td>TreeNode</td><td>find(rickardStark, "Arya Stark", 0) ?</td></tr></table>
 
 ```java
-//  public TreeNode find(String data) { 
         return find(mRoot, data, level);
-//  }
 ```
 
-### Frame 2 - `find(rickardStark, "Arya Stark", 0)`
+##### Frame 2 - `find(rickardStark, "Arya Stark", 0)`
 
 <table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>0</td></tr><tr><td>&gt;&gt; return</td><td>TreeNode</td><td>find(nedStark, "Arya Stark", 1) ?</td></tr></table>
 
@@ -146,7 +144,7 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
 ```
 
 
-### Frame 3 - `find(nedStark, "Arya Stark", 1)`
+##### Frame 3 - `find(nedStark, "Arya Stark", 1)`
 
 <table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/nedStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>1</td></tr><tr><td>returnValue</td><td>TreeNode</td><td>find(brandonStark, "Arya Stark", 1) ?</td></tr></table>
 
@@ -170,7 +168,7 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
 //  }
 ```
 
-### Frame 4 - `find(brandonStark, "Arya Stark", 1) `
+##### Frame 4 - `find(brandonStark, "Arya Stark", 1) `
 
 <table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/brandonStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>1</td></tr><tr><td>returnValue</td><td>TreeNode</td><td>find(benjenStark, "Arya Stark", 1) ?</td></tr></table>
 
@@ -194,7 +192,7 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
 //  }
 ```
 
-### Frame 4 - `find(benjenStark, "Arya Stark", 1) `
+##### Frame 4 - `find(benjenStark, "Arya Stark", 1) `
 
 <table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/benjenStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>1</td></tr><tr><td>returnValue</td><td>TreeNode</td><td>find(benjenStark, "Arya Stark", 1) ?</td></tr></table>
 
