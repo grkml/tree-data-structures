@@ -84,7 +84,7 @@ public class Tree {
     
     // Recursive logic - overloaded find()
     private TreeNode find(TreeNode root, String data, int level) {
-        TreeNode<E> returnValue;
+        TreeNode returnValue;
         
         if (mSize == 0 || root == null) // Basecase 1 (nothing to search)
             return null;
@@ -105,22 +105,8 @@ public class Tree {
 ### Traversing Trees is a Tricky Process
 Lets assume we want to run this code:
 ```java
-// Assume starkFamilyTree is already built like Figure 2
-
-starkFamilyTree.find("Arya Stark");
+TreeNode result = starkFamilyTree.find("Arya Stark");
 ```
-Here's exactly what would happen:
+This function call generates a stack frame:
 
-#### Step 1 - We Enter the Recusive Algorithm
-```java
-//  public TreeNode find(String data) { 
-        return find(mRoot, data, 0); // ENTERING HERE with mRoot = rickardStark and level = 0
-//  }
-```
-At each step of the way,
-
-We'll keep track of important values
-
-<table><tr><th rowspan="3"><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></th><th>root</th><th>rickardStark</th></tr><tr><td>firstChild</td><td>nedStark</td></tr><tr><td>nextSibling</td><td>null</td></tr><tr><td colspan="2">level</td><td>0</td></tr><tr><td colspan="2">returnValue</td><td>null</td></tr></table>
-
-
+<table><tr><th>Data</th><th>Type</th><th>Values</th></tr><tr><td>result</td><td>TreeNode</td><td>starkFamilyTree.find("Arya Stark")</td></tr></table>
