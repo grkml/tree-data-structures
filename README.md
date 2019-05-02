@@ -24,40 +24,31 @@ To represent a tree, it would be useful to abstract away the "spider web" feel o
 
 **Figure 2:** Efficiently representing House Stark with our ```TreeNode``` class
  
-### Implementation
-In practice, we would actually need more than just those 2 pointers to work with the tree efficiently. Here is a sample ```TreeNode``` class that get the job done:
+### Implementing a ```TreeNode```
+In practice, we would actually need more than just those 2 pointers to work with the tree efficiently. Here is an outline of our ```TreeNode``` class:
 #### Instance Variables
 1. ```data <String>``` - Stark family member's name (ie "Ned Stark")
 2. ```firstChild <TreeNode>``` - A pointer to a child of ```this```, if any
 3. ```nextSibling <TreeNode>``` - A pointer to a sibling of ```this```, if any
 4. ```previousNode <TreeNode> ``` - A pointer to previous Node along the chain (see Figure 2)
 5. ```myRoot <TreeNode>``` - A pointer to the root node associated with ```this```
-#### Code
+#### ```TreeNode``` class structure
 ```java
 public class TreeNode {
     protected TreeNode firstChild, nextSibling, previousNode;
     protected String data;
     protected TreeNode myRoot;
     
-    public E getData() { return data; }
-    
-    public TreeNode(String data, TreeNode nextSibling, TreeNode firstChild, TreeNode previousNode) {
-        this.firstChild = firstChild;
-        this.nextSibling = nextSibling;
-        this.previousNode = previousNode;
-        this.data = data;
-        this.myRoot = null;
+    public TreeNode() { 
+      // Constructor Logic...
     }
-   
-    public TreeNode() { this(null, null, null, null); }
     
-    protected TreeNode(String data, TreeNode nextSibling, TreeNode firstChild, TreeNode previousNode, TreeNode root ) {
-        this(data, nextSibling, firstChild, previousNode);
-        this.myRoot = root;
+    public E getData() { 
+      return data; // Accessor
     }
 }
 ```
-#### Data Stored
+#### Data that Could be Stored in a ```Tree```
 | ```<TreeNode> this``` | ```this.firstChild``` | ```this.nextSibling``` | ```this.previousNode``` |
 | :--: | :--: | :--: | :--: |
 | ```rickardStark``` | ```nedStark``` | ```null``` | ```null``` |
@@ -71,3 +62,41 @@ public class TreeNode {
 | ```branStark``` | ```null``` | ```rickonStark``` | ```aryaStark``` |
 | ```rickonStark``` | ```null``` | ```null``` | ```branStark``` |
 | ```jonSnow``` | ```null``` | ```null``` | ```lyannaStark``` |
+
+### Implementing a ```Tree```
+Let's take a mini tour of a barebones ```Tree``` class linking together ```TreeNodes```. We'll focus on the ```find()``` method for now and assume an object of this class called ```starkFamilyTree``` is already setup.
+
+```java
+public class Tree {
+    private int mSize;
+    TreeNode mRoot;
+
+    public Tree() { 
+        // Constrcutor Logic...
+    }
+    
+    // Client side find() function
+    public TreeNode find(String data) { 
+        return find(mRoot, data, 0); // Runs private recursive version of find()
+    }
+    
+    // Recursive logic - overloaded find()
+    private TreeNode find(TreeNode root, String data, int level) {
+        TreeNode<E> returnValue;
+        
+        if (mSize == 0 || root == null) // Basecase 1 (nothing to search)
+            return null;
+        
+        if (root.data.equals(data)) // Basecase 2 (found!)
+            return root;
+
+        if (level > 0) {
+            returnValue = find(root.nextSibling, data, level); // Recursive Call
+            if (returnValue != null)
+                return returnValue;
+        }
+
+        return find(root.firstChild, data, ++level); // Recursive Call
+    }
+}
+```
