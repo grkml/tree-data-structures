@@ -1,5 +1,5 @@
 # Binary Search Trees
-## Understanding General Tree Data Structures First!
+# Understanding General Tree Data Structures First!
 
 Lets take a look at one of my favorite implementations of the tree data structure and identify some terminology along the way:
 
@@ -63,7 +63,7 @@ public class TreeNode {
 | ```rickonStark``` | ```null``` | ```null``` | ```branStark``` |
 | ```jonSnow``` | ```null``` | ```null``` | ```lyannaStark``` |
 
-## Recursion
+# Recursion
 <img width="50%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/recursiveMeme.jpg">
 
 Let's take a mini tour of a barebones ```Tree``` class linking together ```TreeNodes```. We'll focus on the ```find()``` method for now and assume an object of this class called ```starkFamilyTree``` is already setup.
@@ -102,7 +102,7 @@ public class Tree {
     }
 }
 ```
-## Recusrive Steps
+# Recusrive Steps
 Lets assume we want to find "Arya Stark" in the tree using the following code:
 
 ```java
@@ -111,14 +111,18 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
 
 This is a recursive process that has many steps. You can follow along and note what the stack is returning at each step in the title
 
-##### Global Frame
-This frame is seeking an assignment to the variable `result`
+## Stack Frame 0 (Global)
+This frame runs the following global code:
+```java
+TreeNode result = starkFamilyTree.find("Arya Stark");
+```
+
 <table>
   <tr>
-    <th colspan="4">Stack Frame Global</th>
+    <th colspan="4">Stack Frame 0 (Global)</th>
   </tr>
   <tr>
-    <th>local variable</th>
+    <th>global variable</th>
     <th>type</th>
     <th>value</th>
     <th>Relation to the Call Stack</th>
@@ -127,112 +131,43 @@ This frame is seeking an assignment to the variable `result`
     <td>result</td>
     <td>TreeNode</td>
     <td>starkFamilyTree.find("Arya Stark") ???</td>
-    <td>return value from Stack Frame 1</td>
+    <td>**return value from Stack Frame 1</td>
   </tr>
 </table>
 
-##### Frame 1 - `starkFamilyTree.find("Arya Stark")`
-
-
-<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>mRoot</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>0</td></tr><tr><td>&gt;&gt; return</td><td>TreeNode</td><td>find(rickardStark, "Arya Stark", 0) ?</td></tr></table>
-
+## Stack Frame 1
+This frame runs the following code from `public TreeNode find(String data)`
 ```java
-        return find(mRoot, data, level);
+        return find(mRoot, data, 0);
 ```
+<table>
+  <tr>
+    <th colspan="4">Stack Frame 1</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>type</th>
+    <th>value</th>
+    <th>Relation to the Call Stack</th>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>String</td>
+    <td>"Arya Stark"</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>mRoot</td>
+    <td>TreeNode</td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td>
+    <td></td>
+   </tr>
+   <tr>
+     <td>** return value **</td>
+     <td>TreeNode</td>
+     <td>find(rickardStark, "Arya Stark", 0) ???</td>
+     <td>**return value** from Stack Frame 2</td>
+    </tr>
+</table>
 
-##### Frame 2 - `find(rickardStark, "Arya Stark", 0)`
-
-<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>0</td></tr><tr><td>&gt;&gt; return</td><td>TreeNode</td><td>find(nedStark, "Arya Stark", 1) ?</td></tr></table>
-
-```java
-//  private TreeNode find(TreeNode root, String data, int level) {
-//      TreeNode returnValue;
-        
-//      if (mSize == 0 || root == null) // Basecase 1 (nothing to search)
-            return null;
-        
-//      if (root.data.equals(data)) // Basecase 2 (found!)
-//          return root;
-
-//      if (level > 0) {
-//          returnValue = find(root.nextSibling, data, level);
-//          if (returnValue != null)
-//              return returnValue;
-//      }
-
-        return find(root.firstChild, data, ++level);
-//  }
-```
-
-
-##### Frame 3 - `find(nedStark, "Arya Stark", 1)`
-
-<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/nedStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>1</td></tr><tr><td>returnValue</td><td>TreeNode</td><td>find(brandonStark, "Arya Stark", 1) ?</td></tr></table>
-
-```java
-//  private TreeNode find(TreeNode root, String data, int level) {
-//      TreeNode returnValue;
-        
-//      if (mSize == 0 || root == null) // Basecase 1 (nothing to search)
-            return null;
-        
-//      if (root.data.equals(data)) // Basecase 2 (found!)
-//          return root;
-
-        if (level > 0) {
-            returnValue = find(root.nextSibling, data, level);
-//          if (returnValue != null)
-//              return returnValue;
-        }
-
-//      return find(root.firstChild, data, ++level);
-//  }
-```
-
-##### Frame 4 - `find(brandonStark, "Arya Stark", 1) `
-
-<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/brandonStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>1</td></tr><tr><td>returnValue</td><td>TreeNode</td><td>find(benjenStark, "Arya Stark", 1) ?</td></tr></table>
-
-```java
-//  private TreeNode find(TreeNode root, String data, int level) {
-//      TreeNode returnValue;
-        
-//      if (mSize == 0 || root == null) // Basecase 1 (nothing to search)
-            return null;
-        
-//      if (root.data.equals(data)) // Basecase 2 (found!)
-//          return root;
-
-        if (level > 0) {
-            returnValue = find(root.nextSibling, data, level);
-//          if (returnValue != null)
-//              return returnValue;
-        }
-
-//      return find(root.firstChild, data, ++level);
-//  }
-```
-
-##### Frame 4 - `find(benjenStark, "Arya Stark", 1) `
-
-<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>root</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/benjenStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>1</td></tr><tr><td>returnValue</td><td>TreeNode</td><td>find(benjenStark, "Arya Stark", 1) ?</td></tr></table>
-
-```java
-//  private TreeNode find(TreeNode root, String data, int level) {
-//      TreeNode returnValue;
-        
-//      if (mSize == 0 || root == null) // Basecase 1 (nothing to search)
-            return null;
-        
-//      if (root.data.equals(data)) // Basecase 2 (found!)
-//          return root;
-
-        if (level > 0) {
-            returnValue = find(root.nextSibling, data, level);
-//          if (returnValue != null)
-//              return returnValue;
-        }
-
-//      return find(root.firstChild, data, ++level);
-//  }
-```
+## Stack Frame 1`
