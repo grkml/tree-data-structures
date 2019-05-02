@@ -105,15 +105,15 @@ public class Tree {
 ## Recusrive Steps
 Lets assume we want to find "Arya Stark" in the tree. This is a recursive process that has many steps. You can follow along and note the variables along each step.
 ### Frame 0 - Main Program
-##### Code Being Run:
+##### Code:
 ```java
 TreeNode result = starkFamilyTree.find("Arya Stark");
 ```
 ##### Stack Frame:
 <table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>result</td><td>TreeNode</td><td>starkFamilyTree.find("Arya Stark")</td></tr></table>
 
-### Frame 1 - Main Program
-##### Code Being Run:
+### Frame 1 - returns to Frame 0's ```starkFamilyTree.find("Arya Stark")```
+##### Code:
 ```java
 //  public TreeNode find(String data) { 
         return find(mRoot, data, level);
