@@ -123,15 +123,11 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
   </tr>
   <tr>
     <th>global variable</th>
-    <th>type</th>
     <th>value</th>
-    <th>Relation to the Call Stack</th>
   </tr>
   <tr>
-    <td>result</td>
-    <td>TreeNode</td>
-    <td>starkFamilyTree.find("Arya Stark") ???</td>
-    <td>** return value ** from Frame 1</td>
+    <td>** result **</td>
+    <td>starkFamilyTree.find("Arya Stark") ** return ** from Frame 1</td>
   </tr>
 </table>
 
