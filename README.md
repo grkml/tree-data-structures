@@ -114,7 +114,7 @@ This is a recursive process that has many steps. You can follow along and note w
 ## Frame 0 (Global)
 This frame runs the following global code:
 ```java
-TreeNode result = starkFamilyTree.find("Arya Stark");
+TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1
 ```
 
 <table>
@@ -132,9 +132,9 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
 </table>
 
 ## Frame 1
-This frame runs the following code from `public TreeNode find(String data)`
+This frame runs the following code block from `public TreeNode find(String data)`
 ```java
-        return find(mRoot, data, 0);
+        return find(mRoot, data, 0); // Call into Frame 2
 ```
 <table>
   <tr>
@@ -159,9 +159,9 @@ This frame runs the following code from `public TreeNode find(String data)`
 </table>
 
 ## Frame 2
-This frame runs the following code from `private TreeNode find(TreeNode root, String data, int level)`
+This frame runs the following code block from `private TreeNode find(TreeNode root, String data, int level)`
 ```java
-        return find(root.firstChild, data, ++level);
+        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 3
 ```
 <table>
   <tr>
@@ -189,3 +189,72 @@ This frame runs the following code from `private TreeNode find(TreeNode root, St
     </tr>
 </table>
 
+## Frame 3
+This frame runs the following code block from `private TreeNode find(TreeNode root, String data, int level)`
+```java
+        if (level > 0) {
+            returnValue = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 4
+            if (returnValue != null)
+                return returnValue;
+        }
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 3</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/nedStark.jpg"></td>
+   </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+  </tr>
+   <tr>
+     <td>** returnValue **</td>
+     <td>** find(brandonStark, "Arya Stark", 1) **</td>
+    </tr>
+</table>
+
+## Frame 4
+This frame runs the following code block from `private TreeNode find(TreeNode root, String data, int level)`
+```java
+        if (level > 0) {
+            returnValue = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 5
+            if (returnValue != null)
+                return returnValue;
+        }
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 4</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/brandonStark.jpg"></td>
+   </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+  </tr>
+   <tr>
+     <td>** returnValue **</td>
+     <td>** find(brandonStark, "Arya Stark", 1) **</td>
+    </tr>
+</table>
