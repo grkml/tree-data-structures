@@ -968,6 +968,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
 ```java
         if (level > 0) {
             stackResponse = find(root.nextSibling, data, level); // Recursive call to Node 7 (sansaStark)
+            if (stackResponse != null)
                 return stackResponse;
         }
 ```
@@ -1011,6 +1012,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
 ```java
         if (level > 0) {
             stackResponse = find(root.nextSibling, data, level); // Recursive call to Node 8 (aryaStark)
+            if (stackResponse != null)
                 return stackResponse;
         }
 ```
