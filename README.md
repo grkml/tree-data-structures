@@ -110,14 +110,14 @@ Lets assume we want to find "Arya Stark" in the tree. This is a recursive proces
 TreeNode result = starkFamilyTree.find("Arya Stark");
 ```
 ##### Stack Frame:
-<table><tr><th>Data</th><th>Type</th><th>Values</th></tr><tr><td>result</td><td>TreeNode</td><td>starkFamilyTree.find("Arya Stark")</td></tr></table>
+<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>result</td><td>TreeNode</td><td>starkFamilyTree.find("Arya Stark")</td></tr></table>
 
 ### Frame 1 - Main Program
 ##### Code Being Run:
 ```java
 //  public TreeNode find(String data) { 
-        return find(mRoot, data, 0); // Runs private recursive version of find()
+        return find(mRoot, data, level);
 //  }
 ```
 ##### Stack Frame:
-<table><tr><th>Data</th><th>Type</th><th>Values</th></tr><tr><td>result</td><td>TreeNode</td><td>starkFamilyTree.find("Arya Stark")</td></tr></table>
+<table><tr><th>Variable</th><th>Type</th><th>Values</th></tr><tr><td>data</td><td>String</td><td>"Arya Stark"</td></tr><tr><td>mRoot</td><td>TreeNode</td><td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td></tr><tr><td>level</td><td>Integer</td><td>0</td></tr><tr><td>&gt;&gt; return</td><td>TreeNode</td><td>find(mRoot, data, level)</td></tr></table>
