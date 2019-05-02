@@ -111,15 +111,15 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
 
 This is a recursive process that has many steps. You can follow along and note what the stack is returning at each step marked with "**"
 
-## Frame 0 (Global)
-This frame runs the following global code:
+## Frame 0a(Global)
+This frame runs the following global code statement:
 ```java
-TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1
+TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1a
 ```
 
 <table>
   <tr>
-    <th colspan="2">Frame 0 (Global)</th>
+    <th colspan="2">Frame 0a (Global)</th>
   </tr>
   <tr>
     <th>global variable</th>
@@ -131,14 +131,14 @@ TreeNode result = starkFamilyTree.find("Arya Stark"); // Call into Frame 1
   </tr>
 </table>
 
-## Frame 1
-This frame runs the following code block from `public TreeNode find(String data)`
+## Frame 1a
+This frame runs the following code statement from `public TreeNode find(String data)`
 ```java
-        return find(mRoot, data, 0); // Call into Frame 2
+        return find(mRoot, data, 0); // Call into Frame 2a
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 1</th>
+    <th colspan="2">Frame 1a</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -158,14 +158,14 @@ This frame runs the following code block from `public TreeNode find(String data)
     </tr>
 </table>
 
-## Frame 2
-This frame runs the following code block from `private TreeNode find(TreeNode root, String data, int level)`
+## Frame 2a
+Because of its local variables, this frame hits the following code block from `private TreeNode find(TreeNode root, String data, int level)`
 ```java
-        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 3
+        return find(root.firstChild, data, ++level); // <-------- Recursive call into Frame 3a
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 2</th>
+    <th colspan="2">Frame 2a</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -189,18 +189,18 @@ This frame runs the following code block from `private TreeNode find(TreeNode ro
     </tr>
 </table>
 
-## Frame 3
-This frame runs the following code block from `private TreeNode find(TreeNode root, String data, int level)`
+## Frame 3a
+Because of its local variables, this frame hits the following code block from `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (level > 0) {
-            returnValue = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 4
+            returnValue = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 4a
             if (returnValue != null)
                 return returnValue;
         }
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 3</th>
+    <th colspan="2">Frame 3a</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -224,18 +224,18 @@ This frame runs the following code block from `private TreeNode find(TreeNode ro
     </tr>
 </table>
 
-## Frame 4
-This frame runs the following code block from `private TreeNode find(TreeNode root, String data, int level)`
+## Frame 4a
+Because of its local variables, this frame hits the following code block from `private TreeNode find(TreeNode root, String data, int level)`
 ```java
         if (level > 0) {
-            returnValue = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 5
+            returnValue = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 5a
             if (returnValue != null)
                 return returnValue;
         }
 ```
 <table>
   <tr>
-    <th colspan="2">Frame 4</th>
+    <th colspan="2">Frame 4a</th>
   </tr>
   <tr>
     <th>local variable</th>
@@ -255,6 +255,108 @@ This frame runs the following code block from `private TreeNode find(TreeNode ro
   </tr>
    <tr>
      <td>** returnValue **</td>
-     <td>** find(brandonStark, "Arya Stark", 1) **</td>
+     <td>** find(benjenStark, "Arya Stark", 1) **</td>
+    </tr>
+</table>
+
+## Frame 5a
+This frame hits the following code block from `private TreeNode find(TreeNode root, String data, int level)`
+```java
+        if (level > 0) {
+            returnValue = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 6a
+            if (returnValue != null)
+                return returnValue;
+        }
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 5a</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/benjenStark.jpg"></td>
+   </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+  </tr>
+   <tr>
+     <td>** returnValue **</td>
+     <td>** find(lyannaStark, "Arya Stark", 1) **</td>
+    </tr>
+</table>
+
+## Frame 6a
+This frame hits the following code block from `private TreeNode find(TreeNode root, String data, int level)`
+```java
+        if (level > 0) {
+            returnValue = find(root.nextSibling, data, level); // <-------- Recursive call into Frame 7a
+            if (returnValue != null)
+                return returnValue;
+        }
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 6</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/lyannaStark.jpg"></td>
+   </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+  </tr>
+   <tr>
+     <td>** returnValue **</td>
+     <td>** find(null, "Arya Stark", 1) **</td>
+    </tr>
+</table>
+
+## Frame 7a
+This frame hits the following basecale from `private TreeNode find(TreeNode root, String data, int level)`
+```java
+        if (mSize == 0 || root == null)
+            return null; <-------- Recursive return value into Frame 6a
+```
+<table>
+  <tr>
+    <th colspan="2">Frame 7a</th>
+  </tr>
+  <tr>
+    <th>local variable</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>root</td>
+    <td>null</td>
+   </tr>
+  <tr>
+    <td>data</td>
+    <td>"Arya Stark"</td>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+  </tr>
+   <tr>
+     <td>** returnValue **</td>
+     <td>null</td>
     </tr>
 </table>
