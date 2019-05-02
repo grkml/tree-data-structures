@@ -302,7 +302,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
    <tr>
      <td>stackResponse</td>
      <td>find(lyannaStark, "Arya Stark", 1)</td>
-     <td>awaiting return from 6a</td> 
+     <td>awaiting return from 6</td> 
     </tr>
 </table>
 
@@ -381,7 +381,7 @@ Because local variable `root == null`, this frame hits the following basecase fr
 
 
 ## Frame 6 - receives return value from 7 & calls 8
-Frame 6a now has received `stackResponse == null` from 7, so it runs the following code block from 
+Frame 6 now has received `stackResponse == null` from 7, so it runs the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
@@ -493,7 +493,7 @@ Because local variable `root == null`, this frame hits the following basecase fr
 </table>
 
 ## Frame 8 - receives return value from 9 & calls 10
-Frame 7b now has received `stackResponse == null` from 7a, so it runs the following code block from 
+Frame 8 now has received `stackResponse == null` from 9, so it runs the following code block from 
 
 `private TreeNode find(TreeNode root, String data, int level)`
 ```java
