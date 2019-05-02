@@ -119,7 +119,7 @@ TreeNode result = starkFamilyTree.find("Arya Stark");
 
 <table>
   <tr>
-    <th colspan="4">Stack Frame 0 (Global)</th>
+    <th colspan="3">Frame 0 (Global)</th>
   </tr>
   <tr>
     <th>global variable</th>
@@ -138,71 +138,22 @@ This frame runs the following code from `public TreeNode find(String data)`
 ```
 <table>
   <tr>
-    <th colspan="4">Stack Frame 1</th>
+    <th colspan="3">Frame 1</th>
   </tr>
   <tr>
     <th>local variable</th>
-    <th>type</th>
     <th>value</th>
-    <th>Relation to the Call Stack</th>
   </tr>
   <tr>
     <td>data</td>
-    <td>String</td>
     <td>"Arya Stark"</td>
-    <td></td>
   </tr>
   <tr>
     <td>mRoot</td>
-    <td>TreeNode</td>
     <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td>
-    <td></td>
    </tr>
    <tr>
      <td>** return value **</td>
-     <td>TreeNode</td>
-     <td>find(rickardStark, "Arya Stark", 0) ???</td>
-     <td>** return value ** from Frame 2</td>
-    </tr>
-</table>
-
-## Frame 2
-This frame runs the following code from `private TreeNode find(TreeNode root, String data, int level)`
-```java
-        return find(root.firstChild, data, ++level); // Recursive Call
-```
-<table>
-  <tr>
-    <th colspan="4">Frame 2</th>
-  </tr>
-  <tr>
-    <th>local variable</th>
-    <th>type</th>
-    <th>value</th>
-    <th>Relation to the Call Stack</th>
-  </tr>
-  <tr>
-    <td>data</td>
-    <td>String</td>
-    <td>"Arya Stark"</td>
-    <td></td>
-  </tr>
- <tr>
-    <td>level</td>
-    <td>Integer</td>
-    <td>0</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>root</td>
-    <td>TreeNode</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td>
-    <td></td>
-   </tr>
-   <tr>
-     <td>** return value **</td>
-     <td>TreeNode</td>
-     <td>find(nedStark, "Arya Stark", 1) ???</td>
-     <td>** return value ** from Stack Frame 3</td>
+     <td>** find(rickardStark, "Arya Stark", 0) **</td>
     </tr>
 </table>
