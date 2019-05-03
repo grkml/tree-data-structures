@@ -2,7 +2,7 @@
 
 Lets take a look at one of my favorite implementations of the tree data structure and identify some terminology along the way:
 
-<img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTree.jpg">
+<img width="65%" src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/starkFamilyTree.jpg">
 
 **Figure 1:** A tree data structure modeling one of Great Houses of Westeros
 
@@ -19,7 +19,7 @@ The height of any node is measured through the deepest ```child``` node it has. 
 ### Strategy
 To represent a tree, it would be useful to abstract away the "spider web" feel of the actual tree into something more manageable. Imagine that each node has 2 reference pointers ```firstChild``` and ```nextSibling```. Then, we can represent the tree in a chained hierarchy structure focussed on node depth. It would look something like this:
 
-<img width="65%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/starkFamilyTreeImplementation.jpg">
+<img width="65%" src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/starkFamilyTreeImplementation.jpg">
 
 **Figure 2:** Efficiently representing House Stark with our ```TreeNode``` class
  
@@ -101,7 +101,7 @@ public class Tree {
 }
 ```
 # Recursion
-<img width="50%" src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/recursiveMeme.jpg">
+<img width="50%" src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/recursiveMeme.jpg">
 
 To traverse a tree, and check out different nodes on the way we usually use recursion. I really like Mattias Petter Johansson's definition of recursion (check out his awesome YouTube channel [Fun Fun Function](https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q))
 > Recursion is when a function calls itself until it doesn't. That is seriously all recursion is. It's really simple.
@@ -181,7 +181,7 @@ Because local variable `level == 0`, This frame hits the following code block fr
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/rickardStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -220,7 +220,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/nedStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/nedStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -264,7 +264,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/brandonStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/brandonStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -308,7 +308,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/benjenStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/benjenStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -352,7 +352,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/lyannaStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/lyannaStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -429,7 +429,7 @@ Node 4 now has received `stackResponse == null` from lyannaStark.nextSibling, so
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/lyannaStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/lyannaStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -473,7 +473,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/jonSnow.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/jonSnow.jpg"></td>
   </tr>
   <tr>
     <td>data</td>
@@ -549,7 +549,7 @@ Frame 8 now has received `stackResponse == null` from jonSnow.nextSibling, so it
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/jonSnow.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/jonSnow.jpg"></td>
   </tr>
   <tr>
     <td>data</td>
@@ -625,7 +625,7 @@ Node 5 now has received `null` from jonSnow.firstChild, so it runs the following
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/jonSnow.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/jonSnow.jpg"></td>
   </tr>
   <tr>
     <td>data</td>
@@ -665,7 +665,7 @@ Node 4 now has received `null` from 8, so it finishes the following code block f
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/lyannaStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/lyannaStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -706,7 +706,7 @@ Node 3 now has received `stackResponse == null` from Node 4, so it runs the foll
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/benjenStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/benjenStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -783,7 +783,7 @@ Node 3 now has received `null` from benjenStark.firstChild, so it finishes the f
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/benjenStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/benjenStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -823,7 +823,7 @@ Frame 4 now has received `stackResponse == null` from 5, so it runs the followin
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/brandonStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/brandonStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -899,7 +899,7 @@ Node 2 now has received `null` from brandonStark.firstChild, so it finishes the 
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/brandonStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/brandonStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -939,7 +939,7 @@ Node 1 now has received `stackResponse == null` from Node 2, so it runs the foll
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/nedStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/nedStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -983,7 +983,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/robbStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/robbStark.jpg"></td>
   </tr>
   <tr>
     <td>data</td>
@@ -1027,7 +1027,7 @@ Because local variable `level > 0`, This frame hits the following code block fro
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/sansaStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/sansaStark.jpg"></td>
   </tr>
   <tr>
     <td>data</td>
@@ -1068,7 +1068,7 @@ Because local variable `root.data == "Arya Stark"`, This frame hits the base cas
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/aryaStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/aryaStark.jpg"></td>
   </tr>
   <tr>
     <td>data</td>
@@ -1107,7 +1107,7 @@ Node 7 (sansaStark) receives `stackReponse == aryaStark` from Node 8 (aryaStark)
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/sansaStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/sansaStark.jpg"></td>
   </tr>
   <tr>
     <td>data</td>
@@ -1152,7 +1152,7 @@ Node 6 (robbStark) receives `stackReponse == aryaStark` from Node 7 (sansaStark)
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/robbStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/robbStark.jpg"></td>
   </tr>
   <tr>
     <td>data</td>
@@ -1192,7 +1192,7 @@ Node 1(nedStark) now has received `aryaStark` from Node 6 (robbStark), so it fin
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/nedStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/nedStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
@@ -1232,7 +1232,7 @@ Node 0 (rickardStark) receives `aryaStark` from Node 1 (nedStark) Because local 
   </tr>
   <tr>
     <td>root</td>
-    <td><img src="https://github.com/gurkamalpsc/binary-search-trees/blob/master/img/rickardStark.jpg"></td>
+    <td><img src="https://github.com/gurkamalpsc/tree-data-structures/blob/master/img/rickardStark.jpg"></td>
    </tr>
   <tr>
     <td>data</td>
