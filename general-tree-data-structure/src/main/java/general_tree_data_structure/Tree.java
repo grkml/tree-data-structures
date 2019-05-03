@@ -58,4 +58,26 @@ public class Tree<E> {
         ++mSize;
         return newNode;  
     }
+
+    void removeNode(TreeNode<E> nodeToDelete ) {
+        if (nodeToDelete == null || mRoot == null)
+            return; // nothing to delete or tree has no root
+        if (nodeToDelete.myRoot != mRoot)
+            return;  // silent error, node does not belong to this tree
+
+        // Code to override Java Garbage Collection if we wanted to
+        // while (nodeToDelete.firstChild != null)
+        //     removeNode(nodeToDelete.firstChild);
+
+        if (nodeToDelete.previousNode == null)
+            mRoot = null;  // last node in tree
+        else if (nodeToDelete.previousNode.nextSibling == nodeToDelete)
+            nodeToDelete.previousNode.nextSibling = nodeToDelete.nextSibling; // adjust left sibling
+        else
+            nodeToDelete.previousNode.firstChild = nodeToDelete.nextSibling;  // adjust parent
+
+        // adjust the successor sib's prev pointer
+        if (nodeToDelete.nextSibling != null)
+            nodeToDelete.nextSibling.previousNode = nodeToDelete.previousNode;
+    }
 }
