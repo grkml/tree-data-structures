@@ -53,8 +53,8 @@ public class Tree<E> {
         // push this node into the head of the sibling list; adjust prev pointers
         TreeNode<E> newNode = new TreeNode<E>(data, treeNode.firstChild, null, treeNode, mRoot);
         treeNode.firstChild = newNode;
-        if (newNode.sib != null)
-            newNode.sib.prev = newNode;
+        if (newNode.nextSibling != null)
+            newNode.nextSibling.previousNode = newNode;
         ++mSize;
         return newNode;  
     }

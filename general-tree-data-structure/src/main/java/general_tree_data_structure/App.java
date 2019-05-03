@@ -6,11 +6,11 @@ public class App {
         TreeNode<String> tn;
         
         // create a scene in a room
-        //tn = sceneTree.addChild(null, "room");
+        tn = sceneTree.addChild(null, "room");
         
         // add three objects to the scene tree
-        // sceneTree.addChild(tn, "Lily the canine");
-        // sceneTree.addChild(tn, "Miguel the human");
-        // sceneTree.addChild(tn, "table");
+        sceneTree.addChild(tn, "Lily the canine");
+        sceneTree.addChild(tn, "Miguel the human");
+        sceneTree.addChild(tn, "table");
     }
 } 
