@@ -7,6 +7,7 @@ public class BinaryTreeNode<E extends Comparable< ? super E > >
    public E data;
    public BinaryTreeNode<E> myRoot;  // needed to test for certain error
 
+   
    public BinaryTreeNode( E d, BinaryTreeNode<E> lft, BinaryTreeNode<E> rt )
    {
       lftChild = lft; 
