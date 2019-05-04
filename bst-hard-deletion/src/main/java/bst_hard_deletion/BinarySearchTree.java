@@ -43,5 +43,27 @@ public class BinarySearchTree<E extends Comparable< ? super E > >
       return findMin(root.lftChild);
    }
    
-   // public E findMax() { ... }
+   public boolean insert( E x )
+   {
+      int oldSize = mSize;
+      mRoot = insert(mRoot, x); // Start recursion @ mRoot and follow through
+      return (mSize != oldSize); // Tests Whether Insersion Successful
+   }
+   protected BinaryTreeNode<E> insert( BinaryTreeNode<E> root, E x )
+   {
+      int compareResult;
+      
+      if (root == null) // This condition finds a spot to hang the node
+      {
+         mSize++;
+         return new BinaryTreeNode<E>(x, null, null); // null lftChild & rtChild
+      }
+      compareResult = x.compareTo(root.data); 
+      if ( compareResult < 0 ) // less than
+         root.lftChild = insert(root.lftChild, x);
+      else if ( compareResult > 0 ) // greater than
+         root.rtChild = insert(root.rtChild, x);
+
+      return root;
+   }
 }
