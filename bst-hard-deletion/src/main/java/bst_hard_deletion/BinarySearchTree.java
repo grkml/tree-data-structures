@@ -47,7 +47,7 @@ public class BinarySearchTree<E extends Comparable< ? super E > >
    {
       int oldSize = mSize;
       mRoot = insert(mRoot, x); // Start recursion @ mRoot and follow through
-      return (mSize != oldSize); // Tests Whether Insersion Successful
+      return (mSize != oldSize); // successful insertion test
    }
    protected BinaryTreeNode<E> insert( BinaryTreeNode<E> root, E x )
    {
@@ -65,5 +65,12 @@ public class BinarySearchTree<E extends Comparable< ? super E > >
          root.rtChild = insert(root.rtChild, x);
 
       return root;
+   }
+   
+   public boolean remove( E x )
+   {
+      int oldSize = mSize;
+      mRoot = remove(mRoot, x); // call recusrive method
+      return (mSize != oldSize); // successful removal test
    }
 }
