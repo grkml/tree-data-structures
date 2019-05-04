@@ -20,5 +20,14 @@ public class BinarySearchTree<E extends Comparable< ? super E > >
       return findMin(mRoot).data;
    }
    
+   protected BinaryTreeNode<E> findMin( BinaryTreeNode<E> root ) 
+   {
+      if (root == null)
+         return null;
+      if (root.lftChild == null)
+         return root;
+      return findMin(root.lftChild);
+   }
+   
    // public E findMax() { ... }
 }
