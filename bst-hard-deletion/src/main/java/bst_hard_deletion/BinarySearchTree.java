@@ -19,12 +19,26 @@ public class BinarySearchTree<E extends Comparable< ? super E > >
          throw new NoSuchElementException();
       return findMin(mRoot).data;
    }
-   
    protected BinaryTreeNode<E> findMin( BinaryTreeNode<E> root ) 
    {
       if (root == null)
          return null;
       if (root.lftChild == null)
+         return root;
+      return findMin(root.lftChild);
+   }
+   
+   public E findMax()
+   {
+      if (mRoot == null)
+         throw new NoSuchElementException();
+      return findMax(mRoot).data;
+   }
+   protected BinaryTreeNode<E> findMax( BinaryTreeNode<E> root ) 
+   {
+      if (root == null)
+         return null;
+      if (root.rtChild == null)
          return root;
       return findMin(root.lftChild);
    }
